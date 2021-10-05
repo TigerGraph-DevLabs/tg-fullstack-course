@@ -1,0 +1,165 @@
+# Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+# Project information
+site_name: TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB
+site_url: https://tgcloud.io/
+site_author: Advit Deepak
+site_description: >-
+  This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack.
+  Each component — the frontend, middleware, and backend — is meticulously detailed, resulting
+  in an step-by-step journey to deploy one's fullstack app.
+
+# Repository
+repo_name: tg-fullstack-class
+repo_url: https://github.com/TigerGraph-DevLabs/tg-fullstack-class
+#edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2021 TigerGraph
+
+# Configuration
+theme:
+  name: null
+  custom_dir: material
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - tabs
+    - navigation.top
+    - navigation.sections
+    #- navigation.tabs
+    - navigation.tracking
+    #- search.highlight
+    #- search.share
+    #- search.suggest
+    - navigation.tabs.sticky
+    #- instant
+  palette:
+    scheme: default
+    primary: cyan # deep-orange
+    accent: light-blue
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tigergraph/ecosys
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/F2c9b9v
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/TigerGraph/videos
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/TigerGraphDB
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/tigergraph/
+    - icon: fontawesome/brands/twitch
+      link: https://www.twitch.tv/tigergraph
+
+extra:
+  analytics:
+    provider: google
+    property: G-7SRCFSQWQ7
+
+extra_css:
+  - stylesheets/extra.css
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Why Fullstack?:
+      - Why Fullstack: 01_importance.md
+
+  - Course Chapters:
+    - Chapter 01 - Introduction: course/01_notes.md
+    - Chapter 02 - Environment Setup: course/02_notes.md
+    - Chapter 03 - Frontend Design: course/03_notes.md
+    - Chapter 04 - Creating Queries: course/04_notes.md
+    - Chapter 05 - Middleware: course/05_notes.md
+    - Chapter 06 - Fetching Data: course/06_notes.md
+    - Chapter 07 - Deployment: course/07_notes.md
+
+  - Finished Product:
+    - Finished Product: 02_application.md
+
+  - Fullstack Examples:
+    - Exquisite Examples: 03_examples.md
+
+  - Resources:
+    - Resources: 04_resources.md
+
+  - Community:
+    - Get Connected: 05_community.md
