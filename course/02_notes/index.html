@@ -8,20 +8,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and backend — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+        <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
       
       
         <link rel="canonical" href="https://tgcloud.io/course/02_notes/">
       
       
-        <meta name="author" content="Advit Deepak">
+        <meta name="author" content="Kevin Hsu">
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-5.5.3">
     
     
       
-        <title>Chapter 02 - Environment Setup - TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB</title>
+        <title>Chapter 02 - Frontend Design - TigerGraph's Fullstack Course</title>
       
     
     
@@ -70,8 +70,8 @@
   
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB - Chapter 02 - Environment Setup">
-  <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and backend — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 02 - Frontend Design">
+  <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta property="og:url" content="https://tgcloud.io/course/02_notes/">
   <meta property="og:image" content="https://tgcloud.io/assets/images/banner.png">
   <meta property="og:image:type" content="image/png">
@@ -80,8 +80,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@squidfunk">
   <meta name="twitter:creator" content="@squidfunk">
-  <meta name="twitter:title" content="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB - Chapter 02 - Environment Setup">
-  <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and backend — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 02 - Frontend Design">
+  <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta name="twitter:image" content="https://tgcloud.io/assets/images/banner.png">
   <link rel="stylesheet" href="../../assets/stylesheets/overrides.011ebae6.min.css">
 
@@ -100,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chapter-02-environment-setup" class="md-skip">
+        <a href="#installation-first-dash-app" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB" class="md-header-nav__button md-logo" aria-label="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB">
+    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-header-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -139,11 +139,11 @@
       
         <div class="md-header-nav__ellipsis">
           <span class="md-header-nav__topic md-ellipsis">
-            TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB
+            TigerGraph's Fullstack Course
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Chapter 02 - Environment Setup
+              Chapter 02 - Frontend Design
             
           </span>
         </div>
@@ -183,13 +183,13 @@
     
       <div class="md-header-nav__source">
         
-<a href="https://github.com/TigerGraph-DevLabs/tg-fullstack-class/" title="Go to repository" class="md-source">
+<a href="https://github.com/hhsu99/tg-fullstack-course/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    tg-fullstack-class
+    tg-fullstack-course
   </div>
 </a>
       </div>
@@ -313,7 +313,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB" class="md-nav__button md-logo" aria-label="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB">
+    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -321,18 +321,18 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 630 615" width="630" height="615"><defs><path d="M595.55 233.29C594.5 234.24 593.85 235.55 593.72 236.96C597.21 288.54 568.93 370.08 450.45 447.12C449.48 448.07 447.92 448.07 446.95 447.12C445.98 446.09 445.98 444.49 446.95 443.46C498.21 386.55 613.36 229.8 485.89 129.96C485.89 129.96 482.4 126.46 480.57 128.3C479.52 129.17 478.86 130.43 478.74 131.79C508.86 212 469.92 281.55 450.45 310.01C449.49 310.91 448.26 311.49 446.95 311.67C445.12 311.67 445.12 308.18 445.12 308.18C471.75 191.69 425.82 121.14 353.27 62.4C354.47 58.24 360.46 37.44 371.24 0C339.39 1.1 321.7 1.71 318.16 1.83C289.41 4.36 261.62 13.47 236.96 28.45C217.85 28.07 198.79 30.48 180.38 35.61C150.04 47.49 122.58 65.7 99.84 89.02C93.18 96.51 59.9 133.95 0 201.35C29.95 241.88 46.59 264.4 49.92 268.9C48.19 310.41 73.08 348.42 111.82 363.42C132.54 320.26 175.47 292.14 223.31 290.37C256.35 291.25 287.27 306.8 307.68 332.8C334.13 275.73 300.52 209.83 289.87 184.87C289.07 183.85 289.07 182.4 289.87 181.38C289.87 181.38 289.87 181.38 289.87 181.38C291.7 179.55 293.53 183.21 293.53 183.21C417.17 325.65 279.39 541.14 224.48 605.2C222.55 607.2 222.55 610.36 224.48 612.36C224.48 612.36 224.48 612.36 224.48 612.36C226.31 617.68 231.63 614.19 231.63 614.19C266.91 601.71 339.46 576.75 417.17 542.97C556.95 488.05 691.23 399.36 599.04 235.13C599.04 235.13 597.21 231.63 595.55 233.29ZM137.61 168.56C135.78 170.39 133.95 168.56 135.78 166.73C137.61 164.9 152.42 127.63 152.42 127.63C157.75 115.15 161.24 104.5 178.88 102.67C182.39 102.39 210.48 100.12 213.99 99.84C213.99 99.84 141.44 167.4 137.95 169.23C137.88 169.1 137.68 168.7 137.61 168.56Z" id="a3CsshSr8W"></path></defs><g><g><g><use xlink:href="#a3CsshSr8W" opacity="1" fill="#ffffff" fill-opacity="1"></use><g><use xlink:href="#a3CsshSr8W" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-opacity="0"></use></g></g></g></g></svg>
 
     </a>
-    TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB
+    TigerGraph's Fullstack Course
   </label>
   
     <div class="md-nav__source">
       
-<a href="https://github.com/TigerGraph-DevLabs/tg-fullstack-class/" title="Go to repository" class="md-source">
+<a href="https://github.com/hhsu99/tg-fullstack-course/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    tg-fullstack-class
+    tg-fullstack-course
   </div>
 </a>
     </div>
@@ -426,8 +426,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../01_notes/" title="Chapter 01 - Introduction" class="md-nav__link">
-      Chapter 01 - Introduction
+    <a href="../01_notes/" title="Chapter 01 - Environment Setup" class="md-nav__link">
+      Chapter 01 - Environment Setup
     </a>
   </li>
 
@@ -446,132 +446,10 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Chapter 02 - Environment Setup
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Chapter 02 - Environment Setup" class="md-nav__link md-nav__link--active">
-      Chapter 02 - Environment Setup
+    <a href="./" title="Chapter 02 - Frontend Design" class="md-nav__link md-nav__link--active">
+      Chapter 02 - Frontend Design
     </a>
     
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trusted-tools" class="md-nav__link">
-    Trusted Tools
-  </a>
-  
-    <nav class="md-nav" aria-label="Trusted Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-htmlcssjs" class="md-nav__link">
-    The HTML/CSS/JS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-browser" class="md-nav__link">
-    The Browser
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-editor" class="md-nav__link">
-    The Editor
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-terminal" class="md-nav__link">
-    The Terminal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nodejs" class="md-nav__link">
-    Node.js
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quasar-cli" class="md-nav__link">
-    Quasar CLI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontend" class="md-nav__link">
-    Frontend
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#middleware" class="md-nav__link">
-    Middleware
-  </a>
-  
-    <nav class="md-nav" aria-label="Middleware">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pytigergraph" class="md-nav__link">
-    pyTigerGraph
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fastapi" class="md-nav__link">
-    FastAPI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -581,8 +459,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../03_notes/" title="Chapter 03 - Frontend Design" class="md-nav__link">
-      Chapter 03 - Frontend Design
+    <a href="../03_notes/" title="Chapter 03 - Creating Queries" class="md-nav__link">
+      Chapter 03 - Creating Queries
     </a>
   </li>
 
@@ -593,8 +471,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../04_notes/" title="Chapter 04 - Creating Queries" class="md-nav__link">
-      Chapter 04 - Creating Queries
+    <a href="../04_notes/" title="Chapter 04 - Middleware" class="md-nav__link">
+      Chapter 04 - Middleware
     </a>
   </li>
 
@@ -605,8 +483,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../05_notes/" title="Chapter 05 - Middleware" class="md-nav__link">
-      Chapter 05 - Middleware
+    <a href="../05_notes/" title="Chapter 05 - Fetching Data" class="md-nav__link">
+      Chapter 05 - Fetching Data
     </a>
   </li>
 
@@ -617,20 +495,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../06_notes/" title="Chapter 06 - Fetching Data" class="md-nav__link">
-      Chapter 06 - Fetching Data
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../07_notes/" title="Chapter 07 - Deployment" class="md-nav__link">
-      Chapter 07 - Deployment
+    <a href="../06_notes/" title="Chapter 06 - Deployment" class="md-nav__link">
+      Chapter 06 - Deployment
     </a>
   </li>
 
@@ -825,112 +691,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trusted-tools" class="md-nav__link">
-    Trusted Tools
-  </a>
-  
-    <nav class="md-nav" aria-label="Trusted Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-htmlcssjs" class="md-nav__link">
-    The HTML/CSS/JS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-browser" class="md-nav__link">
-    The Browser
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-editor" class="md-nav__link">
-    The Editor
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-terminal" class="md-nav__link">
-    The Terminal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nodejs" class="md-nav__link">
-    Node.js
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quasar-cli" class="md-nav__link">
-    Quasar CLI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontend" class="md-nav__link">
-    Frontend
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#middleware" class="md-nav__link">
-    Middleware
-  </a>
-  
-    <nav class="md-nav" aria-label="Middleware">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pytigergraph" class="md-nav__link">
-    pyTigerGraph
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fastapi" class="md-nav__link">
-    FastAPI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -942,7 +702,7 @@
               
   
                 
-                  <a href="https://github.com/TigerGraph-DevLabs/tg-fullstack-class/edit/master/docs/course/02_notes.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hhsu99/tg-fullstack-course/edit/master/docs/course/02_notes.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -950,98 +710,7 @@
                   
                 
                 
-                <h1 id="chapter-02-environment-setup">Chapter 02 - Environment Setup<a class="headerlink" href="#chapter-02-environment-setup" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Now that we have covered the high-level design of the application, we are ready to set up our local development environment and start creating our TigerGraph Fullstack App.</p>
-<p>In this tutorial, we will use macOS. However, nearly every code section has Windows equivalents and Linux equivalents. For Windows reference, check out <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">this page</a>!</p>
-<p>&nbsp; &nbsp;</p>
-<h2 id="trusted-tools">Trusted Tools<a class="headerlink" href="#trusted-tools" title="Permanent link">&para;</a></h2>
-<p>Before beginning, it’s important to choose reliable sources to learn from. Just like it's important to get your news from reputable sources, it's important to get your technical information from tried and trusted sources. Here are some of our personal favorites:</p>
-<details class="tip" open="open"><summary>The HTML/CSS/JS</summary><h3 id="the-htmlcssjs">The HTML/CSS/JS<a class="headerlink" href="#the-htmlcssjs" title="Permanent link">&para;</a></h3>
-<p>For anything to do with HTML, CSS, or JavaScript, <a href="https://developer.mozilla.org/en-US/">Mozilla's MDN</a> is our go-to. We literally have it open all the time 😅.It's a good idea to head directly to <a href="https://github.com/mdn/">MDN’s GitHub</a> page or their official documentation. It's best to head straight to the source. In this case, we will be using framework libraries like VueJS, Quasar, and Apache Echarts.</p>
-</details>
-<details class="tip" open="open"><summary>The Browser</summary><h3 id="the-browser">The Browser<a class="headerlink" href="#the-browser" title="Permanent link">&para;</a></h3>
-<p>Our recommendation is Chrome. The extension tools are amazing and the team behind them are amazing too. We will use the Vue.js devtools extension as well.It can be installed via the following <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg?hl=en">hyperlink</a>.</p>
-</details>
-<details class="tip" open="open"><summary>The Editor</summary><h3 id="the-editor">The Editor<a class="headerlink" href="#the-editor" title="Permanent link">&para;</a></h3>
-<p>Our recommendation is Visual Studio Code. It's free, open-source, and works well on Mac, Linux, and Windows. Perhaps one of the best features of VSCode is it has a huge amount of <a href="https://aka.ms/vscode-marketplace">available plugins</a> to choose from. Feel free to take a look!</p>
-<p>If you're not feeling VSCode, two other editors that are similar in their offering are <a href="https://www.sublimetext.com/">Sublime Text 3</a> and <a href="https://atom.io/">Atom</a>. Both are great tools! One of our developers used Sublime for a decade and still loves it. Another one of our developers enjoys Atom’s TeleType feature, which allows for real time coding collaboration. Both are free to download. However, Sublime requires a one-time payment of $99 in order to gain certain licenses.</p>
-<p>If you want a more complete offering, you may investigate using an integrated development environment (commonly called an IDE.) The reigning, best IDE for front-end development is <a href="https://www.jetbrains.com/webstorm/">WebStorm</a>. WebStorm is a very powerful IDE that has a lot of features and tools built into it. It aims to be more than just an editor; it aims to be the entire development suite. Great tool!</p>
-</details>
-<details class="tip" open="open"><summary>The Terminal</summary><h3 id="the-terminal">The Terminal<a class="headerlink" href="#the-terminal" title="Permanent link">&para;</a></h3>
-<p>You will have to use a terminal, but it’s less scary than it seems, we promise! For the shell, we are going to use <a href="https://www.gnu.org/software/bash/">bash</a>. You don't need to install it unless you're using Windows (then use <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">these steps</a> to enable it). It's 99% already there on your computer unless you're using some obscure flavor of Linux. Whenever you open your Mac terminal, it'll be running bash by default unless it has been changed. To remedy any command, check out this <a href="https://explainshell.com/">hyperlink!</a></p>
-<p>However, there are other options as well. The reason we use bash is that it is so prevalent. Bash is everywhere. Everything you Google will have the answers written in bash. One of our developer's favorite shells is actually <a href="https://fishshell.com/">fish</a> but it's not very popular. Another shell people swear by is <a href="http://www.zsh.org/">zsh</a>. These are all very cool but we  recommend looking at them later.</p>
-</details>
-<details class="tip" open="open"><summary>Node.js</summary><h3 id="nodejs">Node.js<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h3>
-<p>Node.js is a runtime built on top of Chrome's V8. It allows you to develop apps in JavaScript outside of the browser. It's single-threaded non-blocking and asynchronous. This is achieved by the use of an event loop at the core of Node.js. If you know JS then you already know how to develop with Node.js! Let’s take a closer look...</p>
-<p><strong>For Windows</strong></p>
-<p>If you're running Windows and not using Windows Subsystem Linux (WSL), I recommend you use the <a href="https://nodejs.org/en/">official installer</a> from the Node.js site. Make sure to choose the latest LTS version.</p>
-<p><strong>For Non-Windows</strong></p>
-<p>If you're not on Windows or you are using WSL, we recommend installing Node.js with <a href="https://github.com/nvm-sh/nvm">NVM (node version manager)</a>. NVM allows you to install many versions of Node.js at once and switch whenever you may need to. Additionally, NVM installs Node.js in a folder that will not have permission errors that you would otherwise run into with the official installer. Once you have nvm installed, you need to install a Node version. You can download the latest LTS version with this command.</p>
-<div class="highlight"><pre><span></span><code>nvm install --lts
-</code></pre></div>
-</details>
-<details class="tip" open="open"><summary>Quasar CLI</summary><h3 id="quasar-cli">Quasar CLI<a class="headerlink" href="#quasar-cli" title="Permanent link">&para;</a></h3>
-<p>We selected Quasar as the  <font color='#DD6E0F'>frontend framework</font>, and it is an <strong>open-source VueJS-based</strong> framework for building apps, with a single codebase to build SPAs, SSR App, PWA, BEX, Mobile, and Multi-platform Desktop Apps. Therefore, Quasar CLI comes in handy because it helps to create projects and build developing projects.</p>
-<p>Here’s how to install it!</p>
-<blockquote>
-<p>Make sure that you have Node &gt;=12.22.1 and NPM &gt;=6.14.12 installed on your machine.</p>
-</blockquote>
-<p><em>WARNING: Do  <font color='#DD6E0F'>not use odd versions of Node</font> (i.e. 13, 15, etc). These versions are</em> <strong><em>not tested with Quasar</em></strong> <em>and often cause issues due to their experimental nature. We highly recommend always using the LTS version of Node.</em></p>
-<div class="highlight"><pre><span></span><code># Node.js &gt;=12.22.1 is required.
-
-$ yarn global add @quasar/cli
-# or
-$ npm install -g @quasar/cli
-</code></pre></div>
-</details>
-<h2 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
-<p>With the tool installed, we are now ready to <font color='#DD6E0F'>create a quasar project</font> folder! First, it’s good practice to create a bigger scope project folder named <code>tigergraph_fullstack</code>.</p>
-<div class="highlight"><pre><span></span><code>$ mkdir tigergraph_fullstack
-$ cd tigergraph_full
-</code></pre></div>
-<p>Next, we create a project folder with Quasar CLI:</p>
-<div class="highlight"><pre><span></span><code>tigergraph_fullstack$ quasar create front
-? Project name (internal usage for dev) front
-? Project product name (must start with letter if building mobile apps) Quasar App
-? Project description A Quasar Framework app
-? Author
-? Pick your CSS preprocessor: SCSS
-? Check the features needed for your project: ESLint (recommended), Vuex, Axios
-? Pick an ESLint preset: Standard
-? Continue to install project dependencies after the project has been created? (recommended) NPM
-</code></pre></div>
-<p>Now, we can open our <code>tigergraph_fullstack</code> project with vscode and open the terminal inside vscode as well. This can be done with a shortcut: ctrl + ` (for windows) or cmd + ` (for mac)</p>
-<p>&nbsp; &nbsp;</p>
-<p>Without further ado, let’s start our quasar project!  </p>
-<div class="highlight"><pre><span></span><code>tigergraph_fullstack$ cd front
-tigergraph_fullstack$ quasar dev
-
- App •  READY  • Compiled: &quot;UI&quot;
-
- » App dir........... /Users/username/Desktop/tigergraph_fullstack/front
- » App URL........... http://localhost:8080
-                      http://192.168.50.45:8080
-                      http://169.254.99.222:8080
-                      http://192.168.2.1:8080
- » Dev mode.......... spa
- » Pkg quasar........ v2.0.4
- » Pkg @quasar/app... v3.1.0
- » Transpiled JS..... yes (Babel)
-
- App • Opening default browser at http://localhost:8080
-</code></pre></div>
-<p>With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “quasar dev” inside the project folder (front).</p>
-<p>Now, we can use a browser to open the project with URL: <a href="http://localhost:8080">http://localhost:8080</a></p>
-<p>&nbsp; &nbsp;</p>
-<p>Awesome! Next, we will use some libraries to add to our fullstack app, so let’s install them inside the quasar project folder (front). To do this, we can run the following.</p>
-<div class="highlight"><pre><span></span><code>tigergraph_fullstack/front$ npm i echarts
-</code></pre></div>
-<p>&nbsp; &nbsp;</p>
-<p>Neat! Next up, let’s examine the middleware, an essential part of our project.</p>
-<h2 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h2>
-<h3 id="pytigergraph">pyTigerGraph<a class="headerlink" href="#pytigergraph" title="Permanent link">&para;</a></h3>
-<h3 id="fastapi">FastAPI<a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
+                <h1 id="installation-first-dash-app">Installation, First Dash App<a class="headerlink" href="#installation-first-dash-app" title="Permanent link">&para;</a></h1>
                 
                   
                 
@@ -1078,7 +747,7 @@ tigergraph_fullstack$ quasar dev
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../01_notes/" title="Chapter 01 - Introduction" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../01_notes/" title="Chapter 01 - Environment Setup" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1087,19 +756,19 @@ tigergraph_fullstack$ quasar dev
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Chapter 01 - Introduction
+                Chapter 01 - Environment Setup
               </div>
             </div>
           </a>
         
         
-          <a href="../03_notes/" title="Chapter 03 - Frontend Design" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../03_notes/" title="Chapter 03 - Creating Queries" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Chapter 03 - Frontend Design
+                Chapter 03 - Creating Queries
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

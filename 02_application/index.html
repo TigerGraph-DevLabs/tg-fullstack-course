@@ -8,20 +8,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and backend — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+        <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
       
       
         <link rel="canonical" href="https://tgcloud.io/02_application/">
       
       
-        <meta name="author" content="Advit Deepak">
+        <meta name="author" content="Kevin Hsu">
       
       <link rel="shortcut icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-5.5.3">
     
     
       
-        <title>Finished Product - TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB</title>
+        <title>Finished Product - TigerGraph's Fullstack Course</title>
       
     
     
@@ -70,8 +70,8 @@
   
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB - Finished Product">
-  <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and backend — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta property="og:title" content="TigerGraph's Fullstack Course - Finished Product">
+  <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta property="og:url" content="https://tgcloud.io/02_application/">
   <meta property="og:image" content="https://tgcloud.io/assets/images/banner.png">
   <meta property="og:image:type" content="image/png">
@@ -80,8 +80,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@squidfunk">
   <meta name="twitter:creator" content="@squidfunk">
-  <meta name="twitter:title" content="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB - Finished Product">
-  <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and backend — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Finished Product">
+  <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta name="twitter:image" content="https://tgcloud.io/assets/images/banner.png">
   <link rel="stylesheet" href="../assets/stylesheets/overrides.011ebae6.min.css">
 
@@ -124,7 +124,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB" class="md-header-nav__button md-logo" aria-label="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB">
+    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-header-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -139,7 +139,7 @@
       
         <div class="md-header-nav__ellipsis">
           <span class="md-header-nav__topic md-ellipsis">
-            TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB
+            TigerGraph's Fullstack Course
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
@@ -183,13 +183,13 @@
     
       <div class="md-header-nav__source">
         
-<a href="https://github.com/TigerGraph-DevLabs/tg-fullstack-class/" title="Go to repository" class="md-source">
+<a href="https://github.com/hhsu99/tg-fullstack-course/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    tg-fullstack-class
+    tg-fullstack-course
   </div>
 </a>
       </div>
@@ -313,7 +313,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB" class="md-nav__button md-logo" aria-label="TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB">
+    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -321,18 +321,18 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 630 615" width="630" height="615"><defs><path d="M595.55 233.29C594.5 234.24 593.85 235.55 593.72 236.96C597.21 288.54 568.93 370.08 450.45 447.12C449.48 448.07 447.92 448.07 446.95 447.12C445.98 446.09 445.98 444.49 446.95 443.46C498.21 386.55 613.36 229.8 485.89 129.96C485.89 129.96 482.4 126.46 480.57 128.3C479.52 129.17 478.86 130.43 478.74 131.79C508.86 212 469.92 281.55 450.45 310.01C449.49 310.91 448.26 311.49 446.95 311.67C445.12 311.67 445.12 308.18 445.12 308.18C471.75 191.69 425.82 121.14 353.27 62.4C354.47 58.24 360.46 37.44 371.24 0C339.39 1.1 321.7 1.71 318.16 1.83C289.41 4.36 261.62 13.47 236.96 28.45C217.85 28.07 198.79 30.48 180.38 35.61C150.04 47.49 122.58 65.7 99.84 89.02C93.18 96.51 59.9 133.95 0 201.35C29.95 241.88 46.59 264.4 49.92 268.9C48.19 310.41 73.08 348.42 111.82 363.42C132.54 320.26 175.47 292.14 223.31 290.37C256.35 291.25 287.27 306.8 307.68 332.8C334.13 275.73 300.52 209.83 289.87 184.87C289.07 183.85 289.07 182.4 289.87 181.38C289.87 181.38 289.87 181.38 289.87 181.38C291.7 179.55 293.53 183.21 293.53 183.21C417.17 325.65 279.39 541.14 224.48 605.2C222.55 607.2 222.55 610.36 224.48 612.36C224.48 612.36 224.48 612.36 224.48 612.36C226.31 617.68 231.63 614.19 231.63 614.19C266.91 601.71 339.46 576.75 417.17 542.97C556.95 488.05 691.23 399.36 599.04 235.13C599.04 235.13 597.21 231.63 595.55 233.29ZM137.61 168.56C135.78 170.39 133.95 168.56 135.78 166.73C137.61 164.9 152.42 127.63 152.42 127.63C157.75 115.15 161.24 104.5 178.88 102.67C182.39 102.39 210.48 100.12 213.99 99.84C213.99 99.84 141.44 167.4 137.95 169.23C137.88 169.1 137.68 168.7 137.61 168.56Z" id="a3CsshSr8W"></path></defs><g><g><g><use xlink:href="#a3CsshSr8W" opacity="1" fill="#ffffff" fill-opacity="1"></use><g><use xlink:href="#a3CsshSr8W" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-opacity="0"></use></g></g></g></g></svg>
 
     </a>
-    TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB
+    TigerGraph's Fullstack Course
   </label>
   
     <div class="md-nav__source">
       
-<a href="https://github.com/TigerGraph-DevLabs/tg-fullstack-class/" title="Go to repository" class="md-source">
+<a href="https://github.com/hhsu99/tg-fullstack-course/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    tg-fullstack-class
+    tg-fullstack-course
   </div>
 </a>
     </div>
@@ -424,8 +424,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../course/01_notes/" title="Chapter 01 - Introduction" class="md-nav__link">
-      Chapter 01 - Introduction
+    <a href="../course/01_notes/" title="Chapter 01 - Environment Setup" class="md-nav__link">
+      Chapter 01 - Environment Setup
     </a>
   </li>
 
@@ -436,8 +436,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../course/02_notes/" title="Chapter 02 - Environment Setup" class="md-nav__link">
-      Chapter 02 - Environment Setup
+    <a href="../course/02_notes/" title="Chapter 02 - Frontend Design" class="md-nav__link">
+      Chapter 02 - Frontend Design
     </a>
   </li>
 
@@ -448,8 +448,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../course/03_notes/" title="Chapter 03 - Frontend Design" class="md-nav__link">
-      Chapter 03 - Frontend Design
+    <a href="../course/03_notes/" title="Chapter 03 - Creating Queries" class="md-nav__link">
+      Chapter 03 - Creating Queries
     </a>
   </li>
 
@@ -460,8 +460,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../course/04_notes/" title="Chapter 04 - Creating Queries" class="md-nav__link">
-      Chapter 04 - Creating Queries
+    <a href="../course/04_notes/" title="Chapter 04 - Middleware" class="md-nav__link">
+      Chapter 04 - Middleware
     </a>
   </li>
 
@@ -472,8 +472,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../course/05_notes/" title="Chapter 05 - Middleware" class="md-nav__link">
-      Chapter 05 - Middleware
+    <a href="../course/05_notes/" title="Chapter 05 - Fetching Data" class="md-nav__link">
+      Chapter 05 - Fetching Data
     </a>
   </li>
 
@@ -484,20 +484,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../course/06_notes/" title="Chapter 06 - Fetching Data" class="md-nav__link">
-      Chapter 06 - Fetching Data
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../course/07_notes/" title="Chapter 07 - Deployment" class="md-nav__link">
-      Chapter 07 - Deployment
+    <a href="../course/06_notes/" title="Chapter 06 - Deployment" class="md-nav__link">
+      Chapter 06 - Deployment
     </a>
   </li>
 
@@ -714,7 +702,7 @@
               
   
                 
-                  <a href="https://github.com/TigerGraph-DevLabs/tg-fullstack-class/edit/master/docs/02_application.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/hhsu99/tg-fullstack-course/edit/master/docs/02_application.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -762,7 +750,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../course/07_notes/" title="Chapter 07 - Deployment" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../course/06_notes/" title="Chapter 06 - Deployment" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -771,7 +759,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Chapter 07 - Deployment
+                Chapter 06 - Deployment
               </div>
             </div>
           </a>
