@@ -2,109 +2,124 @@
 template: overrides/main.html
 ---
 
-# Chapter 01 - Introduction to Fullstack
+# Chapter 01 - Environment Setup
 
-Welcome to TigerGraph’s Fullstack tutorial!
+## Introduction
 
-With each of these seven chapters, we’ll walk through creating a COVID-19 tracker that utilizes TigerGraph’s Coronavirus Starter Kit to visualize, interact with, and gain insights into South Korea’s population movements and disease spread. By the end of this tutorial, you’ll have the tools necessary to create and deploy your very own full-stack application using TigerGraph!
+Now that we have covered the high-level design of the application, we are ready to set up our local development environment and start creating our TigerGraph Fullstack App.
 
-## Tracker Overview
+In this tutorial, we will use macOS. However, nearly every code section has Windows equivalents and Linux equivalents. For Windows reference, check out [this page](https://docs.microsoft.com/en-us/windows/wsl/install-win10)!
 
-&nbsp; &nbsp;
+## Trusted Resources
 
-> TODO: Insert introduction overview here!
+Before beginning, it’s important to choose reliable sources to learn from. Just like it's important to get your news from reputable sources, it's important to get your technical information from tried and trusted sources. Here are some of our personal favorites:
 
-&nbsp; &nbsp;
+## Tools
 
-This COVID-19 tracker has several key benefits.
+???+ tip "The HTML/CSS/JS"
 
+    For anything to do with HTML, CSS, or JavaScript, [Mozilla's MDN](https://developer.mozilla.org/en-US/) is our go-to. We literally have it open all the time 😅.It's a good idea to head directly to [MDN’s GitHub](https://github.com/mdn/) page or their official documentation. It's best to head straight to the source. In this case, we will be using framework libraries like ReactJS and Antv G6.
 
-???+ tip "Patient Table"
+???+ tip "The Browser"
 
-    ### Patient Table
+    Our recommendation is Chrome. The extension tools are amazing and the team behind them are amazing too. We will use the JSON Formatter extension as well.It can be installed via the following [hyperlink](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en).
 
-    This patient table allows for easy access to all patient data, stored in a tabular format. In total, this table will contain <> distinct patients. The columns list each patient’s name and  ID number. By scrolling through, one can click on any patient to learn more about their information, consisting of statistics, timelines, and a map.
+???+ tip "The Editor"
 
-???+ tip "Quick Statistics"
+    Our recommendation is Visual Studio Code. It's free, open-source, and works well on Mac, Linux, and Windows. Perhaps one of the best features of VSCode is it has a huge amount of [available plugins](https://aka.ms/vscode-marketplace) to choose from. Feel free to take a look!
 
-    ### Quick Statistics
+    If you're not feeling VSCode, two other editors that are similar in their offering are [Sublime Text 3](https://www.sublimetext.com/) and [Atom](https://atom.io/). Both are great tools! Both are free to download. However, Sublime requires a subscription basis of $65 in order to gain business licenses.
 
-    Upon selecting a patient, several figures will be displayed. These values include “People Contacted”, “People Infected”, “Travel Events”, and a custom “Risk Score”. This “Risk Score” is a measure of how likely it is that the given individual is infected. In order to calculate this value, <insert Leo’s description here>.
+    If you want a more complete offering, you may investigate using an integrated development environment (commonly called an IDE.) The reigning, best IDE for front-end development is [WebStorm](https://www.jetbrains.com/webstorm/). WebStorm is a very powerful IDE that has a lot of features and tools built into it. It aims to be more than just an editor; it aims to be the entire development suite. Great tool!
 
-???+ tip "Travel Timeline"
+???+ tip "The Terminal"
 
-    ### Travel Timeline
+    You will have to use a terminal, but it’s less scary than it seems, we promise! For the shell, we are going to use [bash](https://www.gnu.org/software/bash/). You don't need to install it unless you're using Windows (then use [these steps](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to enable it). It's 99% already there on your computer unless you're using some obscure flavor of Linux. Whenever you open your Mac terminal, it'll be running bash by default unless it has been changed. To remedy any command, check out this [hyperlink!](https://explainshell.com/)
 
-    Furthermore, one valuable insight is the various locations an individual has visited. This timeline displays the dates, location names, and latitude/longitudes of each of the places the individual has travelled to. This timeline is displayed in chronological order and is compared with other individual’s travel timelines to determine risk scores.
+    However, there are other options as well. The reason we use bash is that it is so prevalent. Bash is everywhere. Everything you Google will have the answers written in bash. Other shell people swear by is [zsh](http://www.zsh.org/). All very cool but we  recommend looking at them later.
 
-???+ tip "Movement Map"
+???+ tip "Node.js"
 
-    ### Movement Map
+    Node.js is a runtime built on top of Chrome's V8. It allows you to develop apps in JavaScript outside of the browser. It's single-threaded non-blocking and asynchronous. This is achieved by the use of an event loop at the core of Node.js. If you know JS then you already know how to develop with Node.js! Let’s take a closer look...
 
-    In order to take this travel timeline one step further, each location is visualized on a map of South Korea. Each major point of interest is represented by a circle. The larger the circle, the more individuals that have travelled to that specific location. The darker the color, the riskier the location. This color value is determined by the number of individuals with COVID-19 that visited the location immediately before reporting a positive test.
+    **For Windows**
 
+    If you're running Windows and not using Windows Subsystem Linux (WSL), I recommend you use the [official installer](https://nodejs.org/en/) from the Node.js site. Make sure to choose the latest LTS version.
 
-All combined, these features allow for quick analysis of this large dataset.
+    **For Non-Windows**
 
-In order to create our Covid-19 tracker, we will need to utilize a few powerful tools. Let’s take a closer look at all of the required components and examine how these pieces will fit together…
+    If you're not on Windows or you are using WSL, we recommend installing Node.js with [NVM (node version manager)](https://github.com/nvm-sh/nvm). NVM allows you to install many versions of Node.js at once and switch whenever you may need to. Additionally, NVM installs Node.js in a folder that will not have permission errors that you would otherwise run into with the official installer. Once you have nvm installed, you need to install a Node version. You can download the latest LTS version with this command.
 
-## Talkin' TigerGraph
+    ```
+    nvm install --lts
+    ```
 
-We start with the most pertinent question: how will we store the data for this application?
+## Frontend
 
-For this integral task, we turn to TigerGraph.
+With the tool installed, we are now ready to <font color='#DD6E0F'>create a quasar project</font> folder! First, it’s good practice to create a bigger scope project folder named `tigergraph_fullstack`.
 
-### Intro To TigerGraph
+```
+$ mkdir tigergraph_fullstack
+$ cd tigergraph_full
+```
 
-TigerGraph is a native parallel graph database that can load and analyze large amounts of data in real-time. In comparison to traditional relational databases, TigerGraph's architecture and accompanying graph query language (GSQL) allow for quick, efficient, and powerful analytics.
+Next, we create a project folder with Quasar CLI:
 
-TigerGraph has transformed the following fields:
+```
+tigergraph_fullstack$ quasar create front
+? Project name (internal usage for dev) front
+? Project product name (must start with letter if building mobile apps) Quasar App
+? Project description A Quasar Framework app
+? Author
+? Pick your CSS preprocessor: SCSS
+? Check the features needed for your project: ESLint (recommended), Vuex, Axios
+? Pick an ESLint preset: Standard
+? Continue to install project dependencies after the project has been created? (recommended) NPM
+```
 
-&nbsp; &nbsp;
-
-**Increase Revenue**
-
-+ Product and Service Marketing
-+ Entity Resolution
-+ Customer Journey/360
-+ Recommendation Engine
-
-&nbsp; &nbsp;
-
-**Reduce Cost and Manage Risks**
-
-+ Anti-Money Laundering (AML)
-+ Cybersecurity Threat Detection
-+ Fraud Protection
-+ Risk Assessment and Monitoring
-
-&nbsp; &nbsp;
-
-**Improve Operational Efficiency**
-
-+ Energy Management System
-+ Network Resources Optimization
-+ Supply Chain Analysis
+Now, we can open our `tigergraph_fullstack` project with vscode and open the terminal inside vscode as well. This can be done with a shortcut: ctrl + \` (for windows) or cmd + \` (for mac)
 
 &nbsp; &nbsp;
 
-**Foundational**
+Without further ado, let’s start our quasar project!
 
-+ AI and Machine Learning
-+ Geospatial Analysis
-+ Time Series Analysis
+```
+tigergraph_fullstack$ cd front
+tigergraph_fullstack$ quasar dev
 
-In order to learn more about the evolution and proven potential of graph databases, feel free to check out the following four-part video series created by TigerGraph.
+ App •  READY  • Compiled: "UI"
 
-> TODO: Format these videos properly (embed them)
+ » App dir........... /Users/username/Desktop/tigergraph_fullstack/front
+ » App URL........... http://localhost:8080
+                      http://192.168.50.45:8080
+                      http://169.254.99.222:8080
+                      http://192.168.2.1:8080
+ » Dev mode.......... spa
+ » Pkg quasar........ v2.0.4
+ » Pkg @quasar/app... v3.1.0
+ » Transpiled JS..... yes (Babel)
 
-* https://youtu.be/g_yhkMA3xoE
-* https://youtu.be/qLTiyg7972o
-* https://youtu.be/ZE2u9oLW18k
-* https://youtu.be/mfP6oHNZv34
+ App • Opening default browser at http://localhost:8080
+```
 
-How does TigerGraph achieve such an edge over traditional relational databases? To answer this, we must take a deeper dive into the methodology of data storage in a native parallel graph.
+With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “quasar dev” inside the project folder (front).
 
-### Native Parallel Graphs
+Now, we can use a browser to open the project with URL: http://localhost:8080
 
-> TODO: Coming soon!
+&nbsp; &nbsp;
+
+Awesome! Next, we will use some libraries to add to our fullstack app, so let’s install them inside the quasar project folder (front). To do this, we can run the following.
+
+```
+tigergraph_fullstack/front$ npm i echarts
+```
+
+&nbsp; &nbsp;
+
+Neat! Next up, let’s examine the middleware, an essential part of our project.
+
+## Middleware
+
+### pyTigerGraph
+
+### FastAPI

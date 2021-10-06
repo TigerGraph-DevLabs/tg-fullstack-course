@@ -19,17 +19,17 @@
 # IN THE SOFTWARE.
 
 # Project information
-site_name: TigerGraph's Fullstack Course — Create a Fullstack App with Graph DB
+site_name: TigerGraph's Fullstack Course
 site_url: https://tgcloud.io/
-site_author: Advit Deepak
+site_author: Kevin Hsu
 site_description: >-
   This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack.
-  Each component — the frontend, middleware, and backend — is meticulously detailed, resulting
+  Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting
   in an step-by-step journey to deploy one's fullstack app.
 
 # Repository
-repo_name: tg-fullstack-class
-repo_url: https://github.com/TigerGraph-DevLabs/tg-fullstack-class
+repo_name: tg-fullstack-course
+repo_url: https://github.com/hhsu99/tg-fullstack-course
 #edit_uri: ""
 
 # Copyright
@@ -144,13 +144,12 @@ nav:
       - Why Fullstack: 01_importance.md
 
   - Course Chapters:
-    - Chapter 01 - Introduction: course/01_notes.md
-    - Chapter 02 - Environment Setup: course/02_notes.md
-    - Chapter 03 - Frontend Design: course/03_notes.md
-    - Chapter 04 - Creating Queries: course/04_notes.md
-    - Chapter 05 - Middleware: course/05_notes.md
-    - Chapter 06 - Fetching Data: course/06_notes.md
-    - Chapter 07 - Deployment: course/07_notes.md
+    - Chapter 01 - Environment Setup: course/01_notes.md
+    - Chapter 02 - Frontend Design: course/02_notes.md
+    - Chapter 03 - Creating Queries: course/03_notes.md
+    - Chapter 04 - Middleware: course/04_notes.md
+    - Chapter 05 - Fetching Data: course/05_notes.md
+    - Chapter 06 - Deployment: course/06_notes.md
 
   - Finished Product:
     - Finished Product: 02_application.md
