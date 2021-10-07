@@ -23,7 +23,7 @@ site_name: TigerGraph's Fullstack Course
 site_url: https://tgcloud.io/
 site_author: Kevin Hsu
 site_description: >-
-  This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack.
+  This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications.
   Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting
   in an step-by-step journey to deploy one's fullstack app.
 
@@ -145,11 +145,10 @@ nav:
 
   - Course Chapters:
     - Chapter 01 - Environment Setup: course/01_notes.md
-    - Chapter 02 - Frontend Design: course/02_notes.md
-    - Chapter 03 - Creating Queries: course/03_notes.md
+    - Chapter 02 - Frontend: course/02_notes.md
+    - Chapter 03 - TigerGraph Cloud: course/03_notes.md
     - Chapter 04 - Middleware: course/04_notes.md
-    - Chapter 05 - Fetching Data: course/05_notes.md
-    - Chapter 06 - Deployment: course/06_notes.md
+    - Chapter 05 - Deployment: course/05_notes.md
 
   - Finished Product:
     - Finished Product: 02_application.md

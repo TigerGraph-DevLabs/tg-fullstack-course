@@ -4,35 +4,16 @@ template: overrides/main.html
 
 All the external resources from **Course Chapters**, all in one place. 🧐
 
+## Ch 01 - Environment Setup
 
-## Ch 01 - Introduction ️
+## Ch 02 - Frontend
 
+## Ch 03 - TigerGraph Cloud
 
+## Ch 04 - Middleware
 
-## Ch 02 - Environment Setup
-
-
-
-## Ch 03 - Frontend Design
-
-
-
-## Ch 04 - Creating Queries
-
-
-## Ch 05 - Middleware
-
-
-
-## Ch 06 - Fetching Data
-
-
-
-## Ch 07 - Deployment
-
+## Ch 05 - Deployment
 
 ## Misc - Additional Resources
-
-
 
 &nbsp; &nbsp;

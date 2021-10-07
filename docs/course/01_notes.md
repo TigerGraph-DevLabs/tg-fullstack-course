@@ -59,59 +59,61 @@ Before beginning, it’s important to choose reliable sources to learn from. Jus
 With the tool installed, we are now ready to <font color='#DD6E0F'>create a quasar project</font> folder! First, it’s good practice to create a bigger scope project folder named `tigergraph_fullstack`.
 
 ```
-$ mkdir tigergraph_fullstack
-$ cd tigergraph_full
+mkdir tigergraph_fullstack
+cd tigergraph_fullstack
 ```
 
-Next, we create a project folder with Quasar CLI:
+Next, we create a React project with npx:
 
 ```
-tigergraph_fullstack$ quasar create front
-? Project name (internal usage for dev) front
-? Project product name (must start with letter if building mobile apps) Quasar App
-? Project description A Quasar Framework app
-? Author
-? Pick your CSS preprocessor: SCSS
-? Check the features needed for your project: ESLint (recommended), Vuex, Axios
-? Pick an ESLint preset: Standard
-? Continue to install project dependencies after the project has been created? (recommended) NPM
+npx create-react-app front
 ```
+
+After the create React project command, you should see the terminal prints:
+
+{++We suggest that you begin by typing:++}
+
+{++cd front++}
+
+{++yarn start++}
+
+{++Happy hacking!++}
 
 Now, we can open our `tigergraph_fullstack` project with vscode and open the terminal inside vscode as well. This can be done with a shortcut: ctrl + \` (for windows) or cmd + \` (for mac)
 
 &nbsp; &nbsp;
 
-Without further ado, let’s start our quasar project!
+Without further ado, let’s start our React project!
 
 ```
 tigergraph_fullstack$ cd front
-tigergraph_fullstack$ quasar dev
+tigergraph_fullstack$ yarn start
 
- App •  READY  • Compiled: "UI"
+Compiled successfully!
 
- » App dir........... /Users/username/Desktop/tigergraph_fullstack/front
- » App URL........... http://localhost:8080
-                      http://192.168.50.45:8080
-                      http://169.254.99.222:8080
-                      http://192.168.2.1:8080
- » Dev mode.......... spa
- » Pkg quasar........ v2.0.4
- » Pkg @quasar/app... v3.1.0
- » Transpiled JS..... yes (Babel)
+You can now view front in the browser.
 
- App • Opening default browser at http://localhost:8080
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.50.45:3000
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
 ```
 
-With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “quasar dev” inside the project folder (front).
+With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “yarn start” inside the project folder (front).
 
-Now, we can use a browser to open the project with URL: http://localhost:8080
+Now, we can use a browser to open the project with URL: http://localhost:3000
 
 &nbsp; &nbsp;
 
 Awesome! Next, we will use some libraries to add to our fullstack app, so let’s install them inside the quasar project folder (front). To do this, we can run the following.
 
 ```
-tigergraph_fullstack/front$ npm i echarts
+front$ npm i axios
+```
+
+```
+front$ npm i @antv/g6
 ```
 
 &nbsp; &nbsp;
@@ -120,6 +122,90 @@ Neat! Next up, let’s examine the middleware, an essential part of our project.
 
 ## Middleware
 
-### pyTigerGraph
+### Python Virtual Environment
+
+To start off, we'll create a python virtual enviroment (venv). A venv is a tool which keeps different dependencies of different projects ioslated. Hence, using this, we won'thave to pip install all of the packages on each new project.
+
+Step I: Create Middleware Directory
+Let's create a middleware project directory in parralle to frontend directory
+
+```
+tigergraph-fullstack$ mkdir middleware
+tigergraph-fullstack$ cd middleware
+```
+
+Step II: Create your Virtual Environment
+Now using Python, we can create a virtual environment using venv and Python.
+
+```
+middleware$ python3 -m venv venv
+```
+
+Awesome! Now, this create a folder called "venv" in our directory. We can then activate this virtual environment using:
+
+```
+middleware$ source venv/bin/activate
+```
+
+After running activate the virtual enviroment, you should see a (venv) in front of your terminal.
+
+Step III: Install Packages
+For this project, we’ll be using pyTigerGraph and Fast PI. FastAPI also uses a library called [uvicorn](https://www.uvicorn.org/), so we’ll install that as well.
+
+```
+middleware$ pip install pyTigerGraph fastapi uvicorn
+```
+
+Perfect! After running this, we should be ready to go!
 
 ### FastAPI
+
+Step I: Create a Basic API
+Now, let’s create our first basic API. First, let’s create a file called “main.py.”
+
+```
+touch main.py
+```
+
+Click into it, and then use the code from the [FastAPI website](https://fastapi.tiangolo.com/) in that file.
+
+```
+from typing import Optional
+from fastapi import FastAPI
+app = FastAPI()
+@app.get("/")
+def read_root():
+     return {"Hello": "World"}
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Optional[str] = None):
+     return {"item_id": item_id, "q": q}
+```
+
+Step II: Run the API
+Save main.py then run it with the following command:
+
+```
+uvicorn main:app --reload
+```
+
+Here, we’re using uvicorn to run our file. The filename is main and the --reload has the server automatically reload after we save new changes to the file.
+
+Step III: Explore the Custom Endpoints
+Open a browser to the page https://127.0.0.1:8000. There, you’ll find the {“Hello”: “World”} from the first function.
+
+Now, let’s go to https://127.0.0.1:8000/items/1. That will result in {“item_id”:1,”q”:null}.
+
+The “item_id” is the parameter we passed into it (the /1), but we didn’t pass a q in this case.
+
+Let’s give q a value by going to https://127.0.0.1:8000/items/1?q=test.
+
+Perfect! Here, we passed the optional parameter q as test for the items endpoint.
+
+Step IV: Explore the Prebuilt Endpoints
+Finally, FastAPI has a few prebuilt endpoints, specifically for creating documentation. First, if you go to http://127.0.0.1:8000/docs, you’ll find interactive documentation for the endpoints we created.
+
+Not a fan of that style? If you go to http://127.0.0.1:8000/redoc, you’ll find a different style of documentation.
+
+And with that, let’s now start up the TigerGraph server to integrate pyTigerGraph to our endpoints.
+
+## TigerGraph Cloud
