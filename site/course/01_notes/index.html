@@ -1,0 +1,1082 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+      
+      
+        <link rel="canonical" href="https://tgcloud.io/course/01_notes/">
+      
+      
+        <meta name="author" content="Kevin Hsu">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-5.5.3">
+    
+    
+      
+        <title>Chapter 01 - Environment Setup - TigerGraph's Fullstack Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e584d62f.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cef4c379.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+  
+      
+    
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener("click", ev => {
+        if (ev.target instanceof HTMLElement) {
+          var el = ev.target.closest("a[href^=http]")
+          if (el)
+            ga("send", "event", "outbound", "click", el.href)
+        }
+      })
+    })
+  </script>
+
+    
+  
+  
+    
+  
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 01 - Environment Setup">
+  <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta property="og:url" content="https://tgcloud.io/course/01_notes/">
+  <meta property="og:image" content="https://tgcloud.io/assets/images/banner.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@squidfunk">
+  <meta name="twitter:creator" content="@squidfunk">
+  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 01 - Environment Setup">
+  <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta name="twitter:image" content="https://tgcloud.io/assets/images/banner.png">
+  <link rel="stylesheet" href="../../assets/stylesheets/overrides.011ebae6.min.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-01-environment-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-announce">
+          <div class="md-announce__inner md-grid md-typeset">
+            
+  <a href="https://discord.gg/F2c9b9v">
+    Join TigerGraph's <strong>developer chat</strong> on
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z"/></svg>
+    </span>
+  </a>
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-header-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 630 615" width="630" height="615"><defs><path d="M595.55 233.29C594.5 234.24 593.85 235.55 593.72 236.96C597.21 288.54 568.93 370.08 450.45 447.12C449.48 448.07 447.92 448.07 446.95 447.12C445.98 446.09 445.98 444.49 446.95 443.46C498.21 386.55 613.36 229.8 485.89 129.96C485.89 129.96 482.4 126.46 480.57 128.3C479.52 129.17 478.86 130.43 478.74 131.79C508.86 212 469.92 281.55 450.45 310.01C449.49 310.91 448.26 311.49 446.95 311.67C445.12 311.67 445.12 308.18 445.12 308.18C471.75 191.69 425.82 121.14 353.27 62.4C354.47 58.24 360.46 37.44 371.24 0C339.39 1.1 321.7 1.71 318.16 1.83C289.41 4.36 261.62 13.47 236.96 28.45C217.85 28.07 198.79 30.48 180.38 35.61C150.04 47.49 122.58 65.7 99.84 89.02C93.18 96.51 59.9 133.95 0 201.35C29.95 241.88 46.59 264.4 49.92 268.9C48.19 310.41 73.08 348.42 111.82 363.42C132.54 320.26 175.47 292.14 223.31 290.37C256.35 291.25 287.27 306.8 307.68 332.8C334.13 275.73 300.52 209.83 289.87 184.87C289.07 183.85 289.07 182.4 289.87 181.38C289.87 181.38 289.87 181.38 289.87 181.38C291.7 179.55 293.53 183.21 293.53 183.21C417.17 325.65 279.39 541.14 224.48 605.2C222.55 607.2 222.55 610.36 224.48 612.36C224.48 612.36 224.48 612.36 224.48 612.36C226.31 617.68 231.63 614.19 231.63 614.19C266.91 601.71 339.46 576.75 417.17 542.97C556.95 488.05 691.23 399.36 599.04 235.13C599.04 235.13 597.21 231.63 595.55 233.29ZM137.61 168.56C135.78 170.39 133.95 168.56 135.78 166.73C137.61 164.9 152.42 127.63 152.42 127.63C157.75 115.15 161.24 104.5 178.88 102.67C182.39 102.39 210.48 100.12 213.99 99.84C213.99 99.84 141.44 167.4 137.95 169.23C137.88 169.1 137.68 168.7 137.61 168.56Z" id="a3CsshSr8W"></path></defs><g><g><g><use xlink:href="#a3CsshSr8W" opacity="1" fill="#ffffff" fill-opacity="1"></use><g><use xlink:href="#a3CsshSr8W" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-opacity="0"></use></g></g></g></g></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            TigerGraph's Fullstack Course
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Chapter 01 - Environment Setup
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/hhsu99/tg-fullstack-course/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tg-fullstack-course
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../01_importance/" class="md-tabs__link">
+          Why Fullstack?
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Course Chapters
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../02_application/" class="md-tabs__link">
+          Finished Product
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../03_examples/" class="md-tabs__link">
+          Fullstack Examples
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../04_resources/" class="md-tabs__link">
+          Resources
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../05_community/" class="md-tabs__link">
+          Community
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 630 615" width="630" height="615"><defs><path d="M595.55 233.29C594.5 234.24 593.85 235.55 593.72 236.96C597.21 288.54 568.93 370.08 450.45 447.12C449.48 448.07 447.92 448.07 446.95 447.12C445.98 446.09 445.98 444.49 446.95 443.46C498.21 386.55 613.36 229.8 485.89 129.96C485.89 129.96 482.4 126.46 480.57 128.3C479.52 129.17 478.86 130.43 478.74 131.79C508.86 212 469.92 281.55 450.45 310.01C449.49 310.91 448.26 311.49 446.95 311.67C445.12 311.67 445.12 308.18 445.12 308.18C471.75 191.69 425.82 121.14 353.27 62.4C354.47 58.24 360.46 37.44 371.24 0C339.39 1.1 321.7 1.71 318.16 1.83C289.41 4.36 261.62 13.47 236.96 28.45C217.85 28.07 198.79 30.48 180.38 35.61C150.04 47.49 122.58 65.7 99.84 89.02C93.18 96.51 59.9 133.95 0 201.35C29.95 241.88 46.59 264.4 49.92 268.9C48.19 310.41 73.08 348.42 111.82 363.42C132.54 320.26 175.47 292.14 223.31 290.37C256.35 291.25 287.27 306.8 307.68 332.8C334.13 275.73 300.52 209.83 289.87 184.87C289.07 183.85 289.07 182.4 289.87 181.38C289.87 181.38 289.87 181.38 289.87 181.38C291.7 179.55 293.53 183.21 293.53 183.21C417.17 325.65 279.39 541.14 224.48 605.2C222.55 607.2 222.55 610.36 224.48 612.36C224.48 612.36 224.48 612.36 224.48 612.36C226.31 617.68 231.63 614.19 231.63 614.19C266.91 601.71 339.46 576.75 417.17 542.97C556.95 488.05 691.23 399.36 599.04 235.13C599.04 235.13 597.21 231.63 595.55 233.29ZM137.61 168.56C135.78 170.39 133.95 168.56 135.78 166.73C137.61 164.9 152.42 127.63 152.42 127.63C157.75 115.15 161.24 104.5 178.88 102.67C182.39 102.39 210.48 100.12 213.99 99.84C213.99 99.84 141.44 167.4 137.95 169.23C137.88 169.1 137.68 168.7 137.61 168.56Z" id="a3CsshSr8W"></path></defs><g><g><g><use xlink:href="#a3CsshSr8W" opacity="1" fill="#ffffff" fill-opacity="1"></use><g><use xlink:href="#a3CsshSr8W" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-opacity="0"></use></g></g></g></g></svg>
+
+    </a>
+    TigerGraph's Fullstack Course
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/hhsu99/tg-fullstack-course/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tg-fullstack-course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Why Fullstack?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Why Fullstack?" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Why Fullstack?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_importance/" title="Why Fullstack" class="md-nav__link">
+      Why Fullstack
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Course Chapters
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Course Chapters" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Course Chapters
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chapter 01 - Environment Setup
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Chapter 01 - Environment Setup" class="md-nav__link md-nav__link--active">
+      Chapter 01 - Environment Setup
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trusted-resources" class="md-nav__link">
+    Trusted Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    Frontend
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+    <nav class="md-nav" aria-label="Middleware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-virtual-environment" class="md-nav__link">
+    Python Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi" class="md-nav__link">
+    FastAPI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tigergraph-cloud" class="md-nav__link">
+    TigerGraph Cloud
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-nav__link">
+      Chapter 02 - Frontend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03_notes/" title="Chapter 03 - TigerGraph Cloud" class="md-nav__link">
+      Chapter 03 - TigerGraph Cloud
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04_notes/" title="Chapter 04 - Middleware" class="md-nav__link">
+      Chapter 04 - Middleware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05_notes/" title="Chapter 05 - Deployment" class="md-nav__link">
+      Chapter 05 - Deployment
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Finished Product
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Finished Product" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Finished Product
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02_application/" title="Finished Product" class="md-nav__link">
+      Finished Product
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Fullstack Examples
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Fullstack Examples" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Fullstack Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03_examples/" title="Exquisite Examples" class="md-nav__link">
+      Exquisite Examples
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Resources
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Resources" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../04_resources/" title="Resources" class="md-nav__link">
+      Resources
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05_community/" title="Get Connected" class="md-nav__link">
+      Get Connected
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trusted-resources" class="md-nav__link">
+    Trusted Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    Frontend
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+    <nav class="md-nav" aria-label="Middleware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-virtual-environment" class="md-nav__link">
+    Python Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi" class="md-nav__link">
+    FastAPI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tigergraph-cloud" class="md-nav__link">
+    TigerGraph Cloud
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/hhsu99/tg-fullstack-course/edit/master/docs/course/01_notes.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="chapter-01-environment-setup">Chapter 01 - Environment Setup<a class="headerlink" href="#chapter-01-environment-setup" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Now that we have covered the high-level design of the application, we are ready to set up our local development environment and start creating our TigerGraph Fullstack App.</p>
+<p>In this tutorial, we will use macOS. However, nearly every code section has Windows equivalents and Linux equivalents. For Windows reference, check out <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">this page</a>!</p>
+<h2 id="trusted-resources">Trusted Resources<a class="headerlink" href="#trusted-resources" title="Permanent link">&para;</a></h2>
+<p>Before beginning, it’s important to choose reliable sources to learn from. Just like it's important to get your news from reputable sources, it's important to get your technical information from tried and trusted sources. Here are some of our personal favorites:</p>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<details class="tip" open="open"><summary>The HTML/CSS/JS</summary><p>For anything to do with HTML, CSS, or JavaScript, <a href="https://developer.mozilla.org/en-US/">Mozilla's MDN</a> is our go-to. We literally have it open all the time 😅.It's a good idea to head directly to <a href="https://github.com/mdn/">MDN’s GitHub</a> page or their official documentation. It's best to head straight to the source. In this case, we will be using framework libraries like ReactJS and Antv G6.</p>
+</details>
+<details class="tip" open="open"><summary>The Browser</summary><p>Our recommendation is Chrome. The extension tools are amazing and the team behind them are amazing too. We will use the JSON Formatter extension as well.It can be installed via the following <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">hyperlink</a>.</p>
+</details>
+<details class="tip" open="open"><summary>The Editor</summary><p>Our recommendation is Visual Studio Code. It's free, open-source, and works well on Mac, Linux, and Windows. Perhaps one of the best features of VSCode is it has a huge amount of <a href="https://aka.ms/vscode-marketplace">available plugins</a> to choose from. Feel free to take a look!</p>
+<p>If you're not feeling VSCode, two other editors that are similar in their offering are <a href="https://www.sublimetext.com/">Sublime Text 3</a> and <a href="https://atom.io/">Atom</a>. Both are great tools! Both are free to download. However, Sublime requires a subscription basis of $65 in order to gain business licenses.</p>
+<p>If you want a more complete offering, you may investigate using an integrated development environment (commonly called an IDE.) The reigning, best IDE for front-end development is <a href="https://www.jetbrains.com/webstorm/">WebStorm</a>. WebStorm is a very powerful IDE that has a lot of features and tools built into it. It aims to be more than just an editor; it aims to be the entire development suite. Great tool!</p>
+</details>
+<details class="tip" open="open"><summary>The Terminal</summary><p>You will have to use a terminal, but it’s less scary than it seems, we promise! For the shell, we are going to use <a href="https://www.gnu.org/software/bash/">bash</a>. You don't need to install it unless you're using Windows (then use <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">these steps</a> to enable it). It's 99% already there on your computer unless you're using some obscure flavor of Linux. Whenever you open your Mac terminal, it'll be running bash by default unless it has been changed. To remedy any command, check out this <a href="https://explainshell.com/">hyperlink!</a></p>
+<p>However, there are other options as well. The reason we use bash is that it is so prevalent. Bash is everywhere. Everything you Google will have the answers written in bash. Other shell people swear by is <a href="http://www.zsh.org/">zsh</a>. All very cool but we  recommend looking at them later.</p>
+</details>
+<details class="tip" open="open"><summary>Node.js</summary><p>Node.js is a runtime built on top of Chrome's V8. It allows you to develop apps in JavaScript outside of the browser. It's single-threaded non-blocking and asynchronous. This is achieved by the use of an event loop at the core of Node.js. If you know JS then you already know how to develop with Node.js! Let’s take a closer look...</p>
+<p><strong>For Windows</strong></p>
+<p>If you're running Windows and not using Windows Subsystem Linux (WSL), I recommend you use the <a href="https://nodejs.org/en/">official installer</a> from the Node.js site. Make sure to choose the latest LTS version.</p>
+<p><strong>For Non-Windows</strong></p>
+<p>If you're not on Windows or you are using WSL, we recommend installing Node.js with <a href="https://github.com/nvm-sh/nvm">NVM (node version manager)</a>. NVM allows you to install many versions of Node.js at once and switch whenever you may need to. Additionally, NVM installs Node.js in a folder that will not have permission errors that you would otherwise run into with the official installer. Once you have nvm installed, you need to install a Node version. You can download the latest LTS version with this command.</p>
+<div class="highlight"><pre><span></span><code>nvm install --lts
+</code></pre></div>
+</details>
+<h2 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
+<p>With the tool installed, we are now ready to <font color='#DD6E0F'>create a quasar project</font> folder! First, it’s good practice to create a bigger scope project folder named <code>tigergraph_fullstack</code>.</p>
+<div class="highlight"><pre><span></span><code>mkdir tigergraph_fullstack
+cd tigergraph_fullstack
+</code></pre></div>
+<p>Next, we create a React project with npx:</p>
+<div class="highlight"><pre><span></span><code>npx create-react-app front
+</code></pre></div>
+<p>After the create React project command, you should see the terminal prints:</p>
+<p><ins class="critic">We suggest that you begin by typing:</ins></p>
+<p><ins class="critic">cd front</ins></p>
+<p><ins class="critic">yarn start</ins></p>
+<p><ins class="critic">Happy hacking!</ins></p>
+<p>Now, we can open our <code>tigergraph_fullstack</code> project with vscode and open the terminal inside vscode as well. This can be done with a shortcut: ctrl + ` (for windows) or cmd + ` (for mac)</p>
+<p>&nbsp; &nbsp;</p>
+<p>Without further ado, let’s start our React project!</p>
+<div class="highlight"><pre><span></span><code>tigergraph_fullstack$ cd front
+tigergraph_fullstack$ yarn start
+
+Compiled successfully!
+
+You can now view front in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.50.45:3000
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+</code></pre></div>
+<p>With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “yarn start” inside the project folder (front).</p>
+<p>Now, we can use a browser to open the project with URL: <a href="http://localhost:3000">http://localhost:3000</a></p>
+<p>&nbsp; &nbsp;</p>
+<p>Awesome! Next, we will use some libraries to add to our fullstack app, so let’s install them inside the quasar project folder (front). To do this, we can run the following.</p>
+<div class="highlight"><pre><span></span><code>front$ npm i axios
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>front$ npm i @antv/g6
+</code></pre></div>
+<p>&nbsp; &nbsp;</p>
+<p>Neat! Next up, let’s examine the middleware, an essential part of our project.</p>
+<h2 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h2>
+<h3 id="python-virtual-environment">Python Virtual Environment<a class="headerlink" href="#python-virtual-environment" title="Permanent link">&para;</a></h3>
+<p>To start off, we'll create a python virtual enviroment (venv). A venv is a tool which keeps different dependencies of different projects ioslated. Hence, using this, we won'thave to pip install all of the packages on each new project.</p>
+<p>Step I: Create Middleware Directory
+Let's create a middleware project directory in parralle to frontend directory</p>
+<div class="highlight"><pre><span></span><code>tigergraph-fullstack$ mkdir middleware
+tigergraph-fullstack$ cd middleware
+</code></pre></div>
+<p>Step II: Create your Virtual Environment
+Now using Python, we can create a virtual environment using venv and Python.</p>
+<div class="highlight"><pre><span></span><code>middleware$ python3 -m venv venv
+</code></pre></div>
+<p>Awesome! Now, this create a folder called "venv" in our directory. We can then activate this virtual environment using:</p>
+<div class="highlight"><pre><span></span><code>middleware$ source venv/bin/activate
+</code></pre></div>
+<p>After running activate the virtual enviroment, you should see a (venv) in front of your terminal.</p>
+<p>Step III: Install Packages
+For this project, we’ll be using pyTigerGraph and Fast PI. FastAPI also uses a library called <a href="https://www.uvicorn.org/">uvicorn</a>, so we’ll install that as well.</p>
+<div class="highlight"><pre><span></span><code>middleware$ pip install pyTigerGraph fastapi uvicorn
+</code></pre></div>
+<p>Perfect! After running this, we should be ready to go!</p>
+<h3 id="fastapi">FastAPI<a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
+<p>Step I: Create a Basic API
+Now, let’s create our first basic API. First, let’s create a file called “main.py.”</p>
+<div class="highlight"><pre><span></span><code>touch main.py
+</code></pre></div>
+<p>Click into it, and then use the code from the <a href="https://fastapi.tiangolo.com/">FastAPI website</a> in that file.</p>
+<div class="highlight"><pre><span></span><code>from typing import Optional
+from fastapi import FastAPI
+app = FastAPI()
+@app.get(&quot;/&quot;)
+def read_root():
+     return {&quot;Hello&quot;: &quot;World&quot;}
+@app.get(&quot;/items/{item_id}&quot;)
+def read_item(item_id: int, q: Optional[str] = None):
+     return {&quot;item_id&quot;: item_id, &quot;q&quot;: q}
+</code></pre></div>
+<p>Step II: Run the API
+Save main.py then run it with the following command:</p>
+<div class="highlight"><pre><span></span><code>uvicorn main:app --reload
+</code></pre></div>
+<p>Here, we’re using uvicorn to run our file. The filename is main and the --reload has the server automatically reload after we save new changes to the file.</p>
+<p>Step III: Explore the Custom Endpoints
+Open a browser to the page <a href="https://127.0.0.1:8000">https://127.0.0.1:8000</a>. There, you’ll find the {“Hello”: “World”} from the first function.</p>
+<p>Now, let’s go to <a href="https://127.0.0.1:8000/items/1">https://127.0.0.1:8000/items/1</a>. That will result in {“item_id”:1,”q”:null}.</p>
+<p>The “item_id” is the parameter we passed into it (the /1), but we didn’t pass a q in this case.</p>
+<p>Let’s give q a value by going to <a href="https://127.0.0.1:8000/items/1?q=test">https://127.0.0.1:8000/items/1?q=test</a>.</p>
+<p>Perfect! Here, we passed the optional parameter q as test for the items endpoint.</p>
+<p>Step IV: Explore the Prebuilt Endpoints
+Finally, FastAPI has a few prebuilt endpoints, specifically for creating documentation. First, if you go to <a href="http://127.0.0.1:8000/docs">http://127.0.0.1:8000/docs</a>, you’ll find interactive documentation for the endpoints we created.</p>
+<p>Not a fan of that style? If you go to <a href="http://127.0.0.1:8000/redoc">http://127.0.0.1:8000/redoc</a>, you’ll find a different style of documentation.</p>
+<p>And with that, let’s now start up the TigerGraph server to integrate pyTigerGraph to our endpoints.</p>
+<h2 id="tigergraph-cloud">TigerGraph Cloud<a class="headerlink" href="#tigergraph-cloud" title="Permanent link">&para;</a></h2>
+                
+                  
+                
+              
+  <footer class="tx-content__footer md-typeset">
+    <a href="https://tigergraph.com" title="TigerGraph Website">
+      <hr>
+      <span class="twemoji">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 01-2 2 2 2 0 012 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 00-2-2H0v-2h1a2 2 0 002-2V5a2 2 0 012-2m14 0a2 2 0 012 2v4a2 2 0 002 2h1v2h-1a2 2 0 00-2 2v4a2 2 0 01-2 2h-2v-2h2v-5a2 2 0 012-2 2 2 0 01-2-2V5h-2V3h2m-7 12a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1m-4 0a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1m8 0a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1z"/></svg>
+      </span>
+      <span class="twemoji">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      </span>
+      <span class="twemoji tx-heart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709-.153.086-.308.17-.463.252h-.002a.75.75 0 01-.686 0 16.709 16.709 0 01-.465-.252 31.147 31.147 0 01-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31.146 31.146 0 0114 20.408z"/></svg>
+      </span>
+      <hr>
+    </a>
+  </footer>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../01_importance/" title="Why Fullstack" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Why Fullstack
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Chapter 02 - Frontend
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 TigerGraph
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
+      <script src="../../assets/javascripts/bundle.30071cf1.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs", "navigation.top", "navigation.sections", "navigation.tracking", "navigation.tabs.sticky"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
