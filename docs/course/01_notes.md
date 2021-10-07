@@ -193,6 +193,8 @@ Here, we’re using uvicorn to run our file. The filename is main and the --relo
 Step III: Explore the Custom Endpoints
 Open a browser to the page https://127.0.0.1:8000. There, you’ll find the {“Hello”: “World”} from the first function.
 
+![screenshot1](assets/images/fastapi-hello-world.png)
+
 Now, let’s go to https://127.0.0.1:8000/items/1. That will result in {“item_id”:1,”q”:null}.
 
 The “item_id” is the parameter we passed into it (the /1), but we didn’t pass a q in this case.
