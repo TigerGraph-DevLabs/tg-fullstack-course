@@ -193,21 +193,38 @@ Here, we’re using uvicorn to run our file. The filename is main and the --relo
 Step III: Explore the Custom Endpoints
 Open a browser to the page https://127.0.0.1:8000. There, you’ll find the {“Hello”: “World”} from the first function.
 
-![screenshot1](assets/images/fastapi-hello-world.png)
+![fastapi-hello-world](assets/images/fastapi-hello-world.png)
 
 Now, let’s go to https://127.0.0.1:8000/items/1. That will result in {“item_id”:1,”q”:null}.
 
 The “item_id” is the parameter we passed into it (the /1), but we didn’t pass a q in this case.
 
+![fastapi-get](assets/images/fastapi-get.png)
+
 Let’s give q a value by going to https://127.0.0.1:8000/items/1?q=test.
+
+![fastapi-get-test](assets/images/fastapi-get-test.png)
 
 Perfect! Here, we passed the optional parameter q as test for the items endpoint.
 
 Step IV: Explore the Prebuilt Endpoints
 Finally, FastAPI has a few prebuilt endpoints, specifically for creating documentation. First, if you go to http://127.0.0.1:8000/docs, you’ll find interactive documentation for the endpoints we created.
 
+![fastapi-docs](assets/images/fastapi-docs.png)
+
 Not a fan of that style? If you go to http://127.0.0.1:8000/redoc, you’ll find a different style of documentation.
+
+![fastapi-redoc](assets/images/fastapi-redoc.png)
 
 And with that, let’s now start up the TigerGraph server to integrate pyTigerGraph to our endpoints.
 
 ## TigerGraph Cloud
+
+Step I: Create your Solution
+Navigate to [TigerGraph Cloud](https://tgcloud.io/) and create an account if you haven’t already.
+
+![tigercloud](assets/images/tigercloud.png)
+
+Once logged in, navigate to the [“My Solutions” tab](https://tgcloud.io/app/solutionsti). Next, press the blue “Create Solution” button.
+
+![tg-my-solutions](/docs/assets/images/tg-my-solutions.png)
