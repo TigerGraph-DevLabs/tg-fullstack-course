@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+        <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
       
       
         <link rel="canonical" href="https://tgcloud.io/course/01_notes/">
@@ -71,7 +71,7 @@
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 01 - Environment Setup">
-  <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta property="og:url" content="https://tgcloud.io/course/01_notes/">
   <meta property="og:image" content="https://tgcloud.io/assets/images/banner.png">
   <meta property="og:image:type" content="image/png">
@@ -81,7 +81,7 @@
   <meta name="twitter:site" content="@squidfunk">
   <meta name="twitter:creator" content="@squidfunk">
   <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 01 - Environment Setup">
-  <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph 🐯 Fullstack. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
+  <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta name="twitter:image" content="https://tgcloud.io/assets/images/banner.png">
   <link rel="stylesheet" href="../../assets/stylesheets/overrides.011ebae6.min.css">
 
@@ -497,8 +497,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pytigergraph" class="md-nav__link">
-    pyTigerGraph
+  <a href="#python-virtual-environment" class="md-nav__link">
+    Python Virtual Environment
   </a>
   
 </li>
@@ -515,6 +515,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tigergraph-cloud" class="md-nav__link">
+    TigerGraph Cloud
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -528,8 +535,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../02_notes/" title="Chapter 02 - Frontend Design" class="md-nav__link">
-      Chapter 02 - Frontend Design
+    <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-nav__link">
+      Chapter 02 - Frontend
     </a>
   </li>
 
@@ -540,8 +547,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../03_notes/" title="Chapter 03 - Creating Queries" class="md-nav__link">
-      Chapter 03 - Creating Queries
+    <a href="../03_notes/" title="Chapter 03 - TigerGraph Cloud" class="md-nav__link">
+      Chapter 03 - TigerGraph Cloud
     </a>
   </li>
 
@@ -564,20 +571,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../05_notes/" title="Chapter 05 - Fetching Data" class="md-nav__link">
-      Chapter 05 - Fetching Data
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../06_notes/" title="Chapter 06 - Deployment" class="md-nav__link">
-      Chapter 06 - Deployment
+    <a href="../05_notes/" title="Chapter 05 - Deployment" class="md-nav__link">
+      Chapter 05 - Deployment
     </a>
   </li>
 
@@ -817,8 +812,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pytigergraph" class="md-nav__link">
-    pyTigerGraph
+  <a href="#python-virtual-environment" class="md-nav__link">
+    Python Virtual Environment
   </a>
   
 </li>
@@ -832,6 +827,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tigergraph-cloud" class="md-nav__link">
+    TigerGraph Cloud
+  </a>
   
 </li>
       
@@ -884,51 +886,96 @@
 </details>
 <h2 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
 <p>With the tool installed, we are now ready to <font color='#DD6E0F'>create a quasar project</font> folder! First, it’s good practice to create a bigger scope project folder named <code>tigergraph_fullstack</code>.</p>
-<div class="highlight"><pre><span></span><code>$ mkdir tigergraph_fullstack
-$ cd tigergraph_full
+<div class="highlight"><pre><span></span><code>mkdir tigergraph_fullstack
+cd tigergraph_fullstack
 </code></pre></div>
-<p>Next, we create a project folder with Quasar CLI:</p>
-<div class="highlight"><pre><span></span><code>tigergraph_fullstack$ quasar create front
-? Project name (internal usage for dev) front
-? Project product name (must start with letter if building mobile apps) Quasar App
-? Project description A Quasar Framework app
-? Author
-? Pick your CSS preprocessor: SCSS
-? Check the features needed for your project: ESLint (recommended), Vuex, Axios
-? Pick an ESLint preset: Standard
-? Continue to install project dependencies after the project has been created? (recommended) NPM
+<p>Next, we create a React project with npx:</p>
+<div class="highlight"><pre><span></span><code>npx create-react-app front
 </code></pre></div>
+<p>After the create React project command, you should see the terminal prints:</p>
+<p><ins class="critic">We suggest that you begin by typing:</ins></p>
+<p><ins class="critic">cd front</ins></p>
+<p><ins class="critic">yarn start</ins></p>
+<p><ins class="critic">Happy hacking!</ins></p>
 <p>Now, we can open our <code>tigergraph_fullstack</code> project with vscode and open the terminal inside vscode as well. This can be done with a shortcut: ctrl + ` (for windows) or cmd + ` (for mac)</p>
 <p>&nbsp; &nbsp;</p>
-<p>Without further ado, let’s start our quasar project!</p>
+<p>Without further ado, let’s start our React project!</p>
 <div class="highlight"><pre><span></span><code>tigergraph_fullstack$ cd front
-tigergraph_fullstack$ quasar dev
+tigergraph_fullstack$ yarn start
 
- App •  READY  • Compiled: &quot;UI&quot;
+Compiled successfully!
 
- » App dir........... /Users/username/Desktop/tigergraph_fullstack/front
- » App URL........... http://localhost:8080
-                      http://192.168.50.45:8080
-                      http://169.254.99.222:8080
-                      http://192.168.2.1:8080
- » Dev mode.......... spa
- » Pkg quasar........ v2.0.4
- » Pkg @quasar/app... v3.1.0
- » Transpiled JS..... yes (Babel)
+You can now view front in the browser.
 
- App • Opening default browser at http://localhost:8080
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.50.45:3000
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
 </code></pre></div>
-<p>With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “quasar dev” inside the project folder (front).</p>
-<p>Now, we can use a browser to open the project with URL: <a href="http://localhost:8080">http://localhost:8080</a></p>
+<p>With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “yarn start” inside the project folder (front).</p>
+<p>Now, we can use a browser to open the project with URL: <a href="http://localhost:3000">http://localhost:3000</a></p>
 <p>&nbsp; &nbsp;</p>
 <p>Awesome! Next, we will use some libraries to add to our fullstack app, so let’s install them inside the quasar project folder (front). To do this, we can run the following.</p>
-<div class="highlight"><pre><span></span><code>tigergraph_fullstack/front$ npm i echarts
+<div class="highlight"><pre><span></span><code>front$ npm i axios
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>front$ npm i @antv/g6
 </code></pre></div>
 <p>&nbsp; &nbsp;</p>
 <p>Neat! Next up, let’s examine the middleware, an essential part of our project.</p>
 <h2 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h2>
-<h3 id="pytigergraph">pyTigerGraph<a class="headerlink" href="#pytigergraph" title="Permanent link">&para;</a></h3>
+<h3 id="python-virtual-environment">Python Virtual Environment<a class="headerlink" href="#python-virtual-environment" title="Permanent link">&para;</a></h3>
+<p>To start off, we'll create a python virtual enviroment (venv). A venv is a tool which keeps different dependencies of different projects ioslated. Hence, using this, we won'thave to pip install all of the packages on each new project.</p>
+<p>Step I: Create Middleware Directory
+Let's create a middleware project directory in parralle to frontend directory</p>
+<div class="highlight"><pre><span></span><code>tigergraph-fullstack$ mkdir middleware
+tigergraph-fullstack$ cd middleware
+</code></pre></div>
+<p>Step II: Create your Virtual Environment
+Now using Python, we can create a virtual environment using venv and Python.</p>
+<div class="highlight"><pre><span></span><code>middleware$ python3 -m venv venv
+</code></pre></div>
+<p>Awesome! Now, this create a folder called "venv" in our directory. We can then activate this virtual environment using:</p>
+<div class="highlight"><pre><span></span><code>middleware$ source venv/bin/activate
+</code></pre></div>
+<p>After running activate the virtual enviroment, you should see a (venv) in front of your terminal.</p>
+<p>Step III: Install Packages
+For this project, we’ll be using pyTigerGraph and Fast PI. FastAPI also uses a library called <a href="https://www.uvicorn.org/">uvicorn</a>, so we’ll install that as well.</p>
+<div class="highlight"><pre><span></span><code>middleware$ pip install pyTigerGraph fastapi uvicorn
+</code></pre></div>
+<p>Perfect! After running this, we should be ready to go!</p>
 <h3 id="fastapi">FastAPI<a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
+<p>Step I: Create a Basic API
+Now, let’s create our first basic API. First, let’s create a file called “main.py.”</p>
+<div class="highlight"><pre><span></span><code>touch main.py
+</code></pre></div>
+<p>Click into it, and then use the code from the <a href="https://fastapi.tiangolo.com/">FastAPI website</a> in that file.</p>
+<div class="highlight"><pre><span></span><code>from typing import Optional
+from fastapi import FastAPI
+app = FastAPI()
+@app.get(&quot;/&quot;)
+def read_root():
+     return {&quot;Hello&quot;: &quot;World&quot;}
+@app.get(&quot;/items/{item_id}&quot;)
+def read_item(item_id: int, q: Optional[str] = None):
+     return {&quot;item_id&quot;: item_id, &quot;q&quot;: q}
+</code></pre></div>
+<p>Step II: Run the API
+Save main.py then run it with the following command:</p>
+<div class="highlight"><pre><span></span><code>uvicorn main:app --reload
+</code></pre></div>
+<p>Here, we’re using uvicorn to run our file. The filename is main and the --reload has the server automatically reload after we save new changes to the file.</p>
+<p>Step III: Explore the Custom Endpoints
+Open a browser to the page <a href="https://127.0.0.1:8000">https://127.0.0.1:8000</a>. There, you’ll find the {“Hello”: “World”} from the first function.</p>
+<p>Now, let’s go to <a href="https://127.0.0.1:8000/items/1">https://127.0.0.1:8000/items/1</a>. That will result in {“item_id”:1,”q”:null}.</p>
+<p>The “item_id” is the parameter we passed into it (the /1), but we didn’t pass a q in this case.</p>
+<p>Let’s give q a value by going to <a href="https://127.0.0.1:8000/items/1?q=test">https://127.0.0.1:8000/items/1?q=test</a>.</p>
+<p>Perfect! Here, we passed the optional parameter q as test for the items endpoint.</p>
+<p>Step IV: Explore the Prebuilt Endpoints
+Finally, FastAPI has a few prebuilt endpoints, specifically for creating documentation. First, if you go to <a href="http://127.0.0.1:8000/docs">http://127.0.0.1:8000/docs</a>, you’ll find interactive documentation for the endpoints we created.</p>
+<p>Not a fan of that style? If you go to <a href="http://127.0.0.1:8000/redoc">http://127.0.0.1:8000/redoc</a>, you’ll find a different style of documentation.</p>
+<p>And with that, let’s now start up the TigerGraph server to integrate pyTigerGraph to our endpoints.</p>
+<h2 id="tigergraph-cloud">TigerGraph Cloud<a class="headerlink" href="#tigergraph-cloud" title="Permanent link">&para;</a></h2>
                 
                   
                 
@@ -980,13 +1027,13 @@ tigergraph_fullstack$ quasar dev
           </a>
         
         
-          <a href="../02_notes/" title="Chapter 02 - Frontend Design" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Chapter 02 - Frontend Design
+                Chapter 02 - Frontend
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
