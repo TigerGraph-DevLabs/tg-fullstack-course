@@ -228,3 +228,15 @@ Navigate to [TigerGraph Cloud](https://tgcloud.io/) and create an account if you
 Once logged in, navigate to the [“My Solutions” tab](https://tgcloud.io/app/solutionsti). Next, press the blue “Create Solution” button.
 
 ![tg-my-solutions](/docs/assets/images/tg-my-solutions.png)
+
+We’ll be using COVID-19 Analysis v3.1.5 starter kit. To select it, either scroll down or select the “Geospatial Analysis” category and click on the COVID-19 option. Once it’s selected, press “Next.”
+
+![tg-solutions-covid](/docs/assets/images/tg-solutions-covid.png)
+
+Customize the third page to best describe your graph. Here, keep note of your password and subdomain, as we’ll be using this in pyTigerGraph. Press next.
+
+Note: Write down your subdomain and password!
+
+![tg-solutions-covid-next](/docs/assets/images/tg-solutions-covid-next.png)
+
+On the final page, review that everything looks good, then press “Submit.”
