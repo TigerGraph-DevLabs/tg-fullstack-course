@@ -193,28 +193,28 @@ Here, we’re using uvicorn to run our file. The filename is main and the --relo
 Step III: Explore the Custom Endpoints
 Open a browser to the page https://127.0.0.1:8000. There, you’ll find the {“Hello”: “World”} from the first function.
 
-![fastapi-hello-world](assets/images/fastapi-hello-world.png)
+![fastapi-hello-world](img/fastapi-hello-world.png)
 
 Now, let’s go to https://127.0.0.1:8000/items/1. That will result in {“item_id”:1,”q”:null}.
 
 The “item_id” is the parameter we passed into it (the /1), but we didn’t pass a q in this case.
 
-![fastapi-get](assets/images/fastapi-get.png)
+![fastapi-get](img/fastapi-get.png)
 
 Let’s give q a value by going to https://127.0.0.1:8000/items/1?q=test.
 
-![fastapi-get-test](assets/images/fastapi-get-test.png)
+![fastapi-get-test](img/fastapi-get-test.png)
 
 Perfect! Here, we passed the optional parameter q as test for the items endpoint.
 
 Step IV: Explore the Prebuilt Endpoints
 Finally, FastAPI has a few prebuilt endpoints, specifically for creating documentation. First, if you go to http://127.0.0.1:8000/docs, you’ll find interactive documentation for the endpoints we created.
 
-![fastapi-docs](assets/images/fastapi-docs.png)
+![fastapi-docs](img/fastapi-docs.png)
 
 Not a fan of that style? If you go to http://127.0.0.1:8000/redoc, you’ll find a different style of documentation.
 
-![fastapi-redoc](assets/images/fastapi-redoc.png)
+![fastapi-redoc](img/fastapi-redoc.png)
 
 And with that, let’s now start up the TigerGraph server to integrate pyTigerGraph to our endpoints.
 
@@ -223,20 +223,20 @@ And with that, let’s now start up the TigerGraph server to integrate pyTigerGr
 Step I: Create your Solution
 Navigate to [TigerGraph Cloud](https://tgcloud.io/) and create an account if you haven’t already.
 
-![tigercloud](assets/images/tigercloud.png)
+![tigercloud](img/tigercloud.png)
 
 Once logged in, navigate to the [“My Solutions” tab](https://tgcloud.io/app/solutionsti). Next, press the blue “Create Solution” button.
 
-![tg-my-solutions](/docs/assets/images/tg-my-solutions.png)
+![tg-my-solutions](img/tg-my-solutions.png)
 
 We’ll be using COVID-19 Analysis v3.1.5 starter kit. To select it, either scroll down or select the “Geospatial Analysis” category and click on the COVID-19 option. Once it’s selected, press “Next.”
 
-![tg-solutions-covid](/docs/assets/images/tg-solutions-covid.png)
+![tg-solutions-covid](img/tg-solutions-covid.png)
 
 Customize the third page to best describe your graph. Here, keep note of your password and subdomain, as we’ll be using this in pyTigerGraph. Press next.
 
 Note: Write down your subdomain and password!
 
-![tg-solutions-covid-next](/docs/assets/images/tg-solutions-covid-next.png)
+![tg-solutions-covid-next](img/tg-solutions-covid-next.png)
 
 On the final page, review that everything looks good, then press “Submit.”
