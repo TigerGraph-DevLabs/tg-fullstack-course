@@ -11,7 +11,7 @@
         <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
       
       
-        <link rel="canonical" href="https://tgcloud.io/course/01_notes/">
+        <link rel="canonical" href="https://hhsu99.github.io/tg-fullstack-course/course/01_notes/">
       
       
         <meta name="author" content="Kevin Hsu">
@@ -72,8 +72,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 01 - Environment Setup">
   <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
-  <meta property="og:url" content="https://tgcloud.io/course/01_notes/">
-  <meta property="og:image" content="https://tgcloud.io/assets/images/banner.png">
+  <meta property="og:url" content="https://hhsu99.github.io/tg-fullstack-course/course/01_notes/">
+  <meta property="og:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -82,7 +82,7 @@
   <meta name="twitter:creator" content="@squidfunk">
   <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 01 - Environment Setup">
   <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
-  <meta name="twitter:image" content="https://tgcloud.io/assets/images/banner.png">
+  <meta name="twitter:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
   <link rel="stylesheet" href="../../assets/stylesheets/overrides.011ebae6.min.css">
 
   </head>
@@ -124,7 +124,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-header-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
+    <a href="https://hhsu99.github.io/tg-fullstack-course/" title="TigerGraph's Fullstack Course" class="md-header-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -313,7 +313,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://tgcloud.io/" title="TigerGraph's Fullstack Course" class="md-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
+    <a href="https://hhsu99.github.io/tg-fullstack-course/" title="TigerGraph's Fullstack Course" class="md-nav__button md-logo" aria-label="TigerGraph's Fullstack Course">
       
   
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -967,15 +967,31 @@ Save main.py then run it with the following command:</p>
 <p>Here, we’re using uvicorn to run our file. The filename is main and the --reload has the server automatically reload after we save new changes to the file.</p>
 <p>Step III: Explore the Custom Endpoints
 Open a browser to the page <a href="https://127.0.0.1:8000">https://127.0.0.1:8000</a>. There, you’ll find the {“Hello”: “World”} from the first function.</p>
+<p><img alt="fastapi-hello-world" src="../img/fastapi-hello-world.png" /></p>
 <p>Now, let’s go to <a href="https://127.0.0.1:8000/items/1">https://127.0.0.1:8000/items/1</a>. That will result in {“item_id”:1,”q”:null}.</p>
 <p>The “item_id” is the parameter we passed into it (the /1), but we didn’t pass a q in this case.</p>
+<p><img alt="fastapi-get" src="../img/fastapi-get.png" /></p>
 <p>Let’s give q a value by going to <a href="https://127.0.0.1:8000/items/1?q=test">https://127.0.0.1:8000/items/1?q=test</a>.</p>
+<p><img alt="fastapi-get-test" src="../img/fastapi-get-test.png" /></p>
 <p>Perfect! Here, we passed the optional parameter q as test for the items endpoint.</p>
 <p>Step IV: Explore the Prebuilt Endpoints
 Finally, FastAPI has a few prebuilt endpoints, specifically for creating documentation. First, if you go to <a href="http://127.0.0.1:8000/docs">http://127.0.0.1:8000/docs</a>, you’ll find interactive documentation for the endpoints we created.</p>
+<p><img alt="fastapi-docs" src="../img/fastapi-docs.png" /></p>
 <p>Not a fan of that style? If you go to <a href="http://127.0.0.1:8000/redoc">http://127.0.0.1:8000/redoc</a>, you’ll find a different style of documentation.</p>
+<p><img alt="fastapi-redoc" src="../img/fastapi-redoc.png" /></p>
 <p>And with that, let’s now start up the TigerGraph server to integrate pyTigerGraph to our endpoints.</p>
 <h2 id="tigergraph-cloud">TigerGraph Cloud<a class="headerlink" href="#tigergraph-cloud" title="Permanent link">&para;</a></h2>
+<p>Step I: Create your Solution
+Navigate to <a href="https://tgcloud.io/">TigerGraph Cloud</a> and create an account if you haven’t already.</p>
+<p><img alt="tigercloud" src="../img/tigercloud.png" /></p>
+<p>Once logged in, navigate to the <a href="https://tgcloud.io/app/solutionsti">“My Solutions” tab</a>. Next, press the blue “Create Solution” button.</p>
+<p><img alt="tg-my-solutions" src="../img/tg-my-solutions.png" /></p>
+<p>We’ll be using COVID-19 Analysis v3.1.5 starter kit. To select it, either scroll down or select the “Geospatial Analysis” category and click on the COVID-19 option. Once it’s selected, press “Next.”</p>
+<p><img alt="tg-solutions-covid" src="../img/tg-solutions-covid.png" /></p>
+<p>Customize the third page to best describe your graph. Here, keep note of your password and subdomain, as we’ll be using this in pyTigerGraph. Press next.</p>
+<p>Note: Write down your subdomain and password!</p>
+<p><img alt="tg-solutions-covid-next" src="img/tg-solutions-covid-next.png" /></p>
+<p>On the final page, review that everything looks good, then press “Submit.”</p>
                 
                   
                 
