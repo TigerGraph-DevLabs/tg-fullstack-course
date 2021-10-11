@@ -21,7 +21,7 @@
     
     
       
-        <title>Chapter 02 - Frontend - TigerGraph's Fullstack Course</title>
+        <title>Chapter 02 - TigerGraph Cloud - TigerGraph's Fullstack Course</title>
       
     
     
@@ -70,7 +70,7 @@
   
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 02 - Frontend">
+  <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 02 - TigerGraph Cloud">
   <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta property="og:url" content="https://hhsu99.github.io/tg-fullstack-course/course/02_notes/">
   <meta property="og:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
@@ -80,7 +80,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@squidfunk">
   <meta name="twitter:creator" content="@squidfunk">
-  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 02 - Frontend">
+  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 02 - TigerGraph Cloud">
   <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta name="twitter:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
   <link rel="stylesheet" href="../../assets/stylesheets/overrides.011ebae6.min.css">
@@ -100,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-first-dash-app" class="md-skip">
+        <a href="#tigergraph-cloud" class="md-skip">
           Skip to content
         </a>
       
@@ -143,7 +143,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Chapter 02 - Frontend
+              Chapter 02 - TigerGraph Cloud
             
           </span>
         </div>
@@ -239,7 +239,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../01_notes/" class="md-tabs__link md-tabs__link--active">
+        <a href="../00_notes/" class="md-tabs__link md-tabs__link--active">
           Course Chapters
         </a>
       
@@ -426,6 +426,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../00_notes/" title="Chapter   0 - Tools" class="md-nav__link">
+      Chapter &nbsp;&nbsp;0 - Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../01_notes/" title="Chapter 01 - Environment Setup" class="md-nav__link">
       Chapter 01 - Environment Setup
     </a>
@@ -446,8 +458,8 @@
       
     
     
-    <a href="./" title="Chapter 02 - Frontend" class="md-nav__link md-nav__link--active">
-      Chapter 02 - Frontend
+    <a href="./" title="Chapter 02 - TigerGraph Cloud" class="md-nav__link md-nav__link--active">
+      Chapter 02 - TigerGraph Cloud
     </a>
     
   </li>
@@ -459,8 +471,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../03_notes/" title="Chapter 03 - TigerGraph Cloud" class="md-nav__link">
-      Chapter 03 - TigerGraph Cloud
+    <a href="../03_notes/" title="Chapter 03 - Frontend" class="md-nav__link">
+      Chapter 03 - Frontend
     </a>
   </li>
 
@@ -698,7 +710,28 @@
                   
                 
                 
-                <h1 id="installation-first-dash-app">Installation, First Dash App<a class="headerlink" href="#installation-first-dash-app" title="Permanent link">&para;</a></h1>
+                <h1 id="tigergraph-cloud">TigerGraph Cloud<a class="headerlink" href="#tigergraph-cloud" title="Permanent link">&para;</a></h1>
+<p><strong>Step I. Exploring the solution dataset: <br></strong>
+To do this, open GraphStudio by going to "Applications Icon" and clicked on "GraphStudio" from the dropdown.</p>
+<p><img alt="gs" src="../img/gs.png" /></p>
+<p><strong>Step II. Select MyGraph: <br></strong>
+In the tab that opens, click "Global View" in the top left corner then select "MyGraph" from the dropdown to enter the MyGraph graph.</p>
+<p><img alt="gs-mygraph" src="../img/gs-mygraph.png" /></p>
+<p><strong>Step III. Data loading: <br></strong>
+To do this, click the “Load Data” tab then press the play button with the hover value of “Start/Resume loading.”</p>
+<p><img alt="gs-data-loading" src="../img/gs-data-loading.png" /></p>
+<p>Click on the contune to proceed the loading.</p>
+<p><img alt="gs-data-loading-confirmation" src="../img/gs-data-loading-confirmation.png" /></p>
+<p><strong>Step IV. GSQL Queries: <br></strong>
+Perfect! Next, we’ll install all the queries. To do this, go to the “Write Queries” tab and press the box with an up arrow.</p>
+<p><img alt="gs-query-install" src="../img/gs-query-install.png" /></p>
+<p><img alt="gs-query-install-confirmation" src="../img/gs-query-install-confirmation.png" /></p>
+<p>This tutorial will use the exiting query to demonstrate the fullstack. In this case, the GQSL query used in the tutorial is "listPatients_Infected_By".</p>
+<p><img alt="gs-gsql-infectedByPatient" src="../img/gs-gsql-infectedByPatient.png" /></p>
+<p>This query finds the patient infected by the input of "Patient Vertex ID" (2000000205). Therefore, the query outputs a list of Infected_Patients by the Patient Vertex ID (2000000205).</p>
+<p><img alt="gs-gsql-infectedByPatient-output" src="../img/gs-gsql-infectedByPatient-output.png" /></p>
+<p>In addition, GraphStudio allows create your own custom GSQL queries!
+If you want to learn more about TigerGraph Cloud, check out <a href="https://www.tigergraph.com/blog/getting-started-with-tigergraph-3-0/">this blog</a>.</p>
                 
                   
                 
@@ -750,13 +783,13 @@
           </a>
         
         
-          <a href="../03_notes/" title="Chapter 03 - TigerGraph Cloud" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../03_notes/" title="Chapter 03 - Frontend" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Chapter 03 - TigerGraph Cloud
+                Chapter 03 - Frontend
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

@@ -21,7 +21,7 @@
     
     
       
-        <title>Chapter 03 - TigerGraph Cloud - TigerGraph's Fullstack Course</title>
+        <title>Chapter 03 - Frontend - TigerGraph's Fullstack Course</title>
       
     
     
@@ -70,7 +70,7 @@
   
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 03 - TigerGraph Cloud">
+  <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 03 - Frontend">
   <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta property="og:url" content="https://hhsu99.github.io/tg-fullstack-course/course/03_notes/">
   <meta property="og:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
@@ -80,7 +80,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@squidfunk">
   <meta name="twitter:creator" content="@squidfunk">
-  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 03 - TigerGraph Cloud">
+  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 03 - Frontend">
   <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta name="twitter:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
   <link rel="stylesheet" href="../../assets/stylesheets/overrides.011ebae6.min.css">
@@ -143,7 +143,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Chapter 03 - TigerGraph Cloud
+              Chapter 03 - Frontend
             
           </span>
         </div>
@@ -239,7 +239,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../01_notes/" class="md-tabs__link md-tabs__link--active">
+        <a href="../00_notes/" class="md-tabs__link md-tabs__link--active">
           Course Chapters
         </a>
       
@@ -426,6 +426,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../00_notes/" title="Chapter   0 - Tools" class="md-nav__link">
+      Chapter &nbsp;&nbsp;0 - Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../01_notes/" title="Chapter 01 - Environment Setup" class="md-nav__link">
       Chapter 01 - Environment Setup
     </a>
@@ -438,8 +450,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-nav__link">
-      Chapter 02 - Frontend
+    <a href="../02_notes/" title="Chapter 02 - TigerGraph Cloud" class="md-nav__link">
+      Chapter 02 - TigerGraph Cloud
     </a>
   </li>
 
@@ -458,8 +470,8 @@
       
     
     
-    <a href="./" title="Chapter 03 - TigerGraph Cloud" class="md-nav__link md-nav__link--active">
-      Chapter 03 - TigerGraph Cloud
+    <a href="./" title="Chapter 03 - Frontend" class="md-nav__link md-nav__link--active">
+      Chapter 03 - Frontend
     </a>
     
   </li>
@@ -699,6 +711,193 @@
                 
                 
                 <h1 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h1>
+<p><strong>Step I. Resume: <br></strong>
+Let's continue where we left off from the frontend setup. If the React project is off then execute the project!</p>
+<div class="highlight"><pre><span></span><code>tigergraph-fullstack$ cd front
+front$ npm start
+
+Compiled successfully!
+
+You can now view front in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.50.45:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm build.
+</code></pre></div>
+<p>Now, we can use a browser to open the project with URL: <a href="http://localhost:3000">http://localhost:3000</a>
+<img alt="react-hello-world" src="../img/react-hello-world.png" /></p>
+<p><strong>Step II. Removeing the Hello World: <br></strong>
+The npx creates the React project with the files and folder structure. Let's open the file 'App.js' located in '/tigergraph-fullstack/front/src/App.js'</p>
+<p><img alt="react-folder-structure" src="../img/react-folder-structure.png" style="height:300px;width:240px" /></p>
+<p>Replace the code over the current existing code in 'App.js'.</p>
+<div class="highlight"><pre><span></span><code>import &#39;./App.css&#39;;
+
+import React, { Component } from &#39;react&#39;;
+
+class App extends Component {
+  render() {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;h1&gt;GSQL Query: listPatients_Infected_By(2000000205)&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;
+</code></pre></div>
+<p>We replaced the React Functional Component with React Class Component. In addition, we added a h1 tag and giving div tag a class name called 'App' which is from the import of 'App,css'.</p>
+<p>Afterward the <a href="http://localhost:3000">http://localhost:3000</a> will show this.</p>
+<p><img alt="rt-rm-hw" src="../img/rt-rm-hw.png" style="border-style: inset;" /></p>
+<p>From the header/h1 information, we are going to create a graph showing a list of patients infected by the vertex id of 2000000205.</p>
+<p><strong>Step II. Libraries: <br></strong>
+Let's import all the libraies inside the 'App.js' on first two lines.</p>
+<div class="highlight"><pre><span></span><code>import axios from &#39;axios&#39;;
+import G6 from &#39;@antv/g6&#39;;
+</code></pre></div>
+<p><a href="https://antv.vision/en">AntV G6</a> will be used in this tutorial which is a new generation of data visualization solution from Ant Group. In addition, Axios provides a small package with a very extensible interface. <a href="https://axios-http.com/">Learn more</a></p>
+<p><strong>Step III. Loading Data at front: <br></strong>
+Three key points to cover from loading the data at frontend which are 1) React constructor, 2) React life Cycle, and 3) Axios (HTTP request).
+<br/>
+<br/>1) The React constructor is a method that's automatically called during the creation of an object from a class. Therefore, it is used to bind event handlers to the components. In other words, we will use to create a state to store data object.</p>
+<div class="highlight"><pre><span></span><code>constructor() {
+super();
+this.state = { data: [] };
+}
+</code></pre></div>
+<p><br/>2) Life cycle in particular of componentDidMount() method runs after the component output has been rendered to the DOM.</p>
+<div class="highlight"><pre><span></span><code>componentDidMount() {}
+</code></pre></div>
+<p><br/>3) Axios is a simple promise based HTTP client which use in React to make request from the FastAPI endpoint.</p>
+<div class="highlight"><pre><span></span><code>axios.get(&#39;http://127.0.0.1:8000/listPatients_Infected_By&#39;).then((res) =&gt; {
+    if (res.status === 200) {
+    }
+    })
+    .catch((err) =&gt; {
+    console.error(err);
+    });
+</code></pre></div>
+<p><strong>The entire App.js: <br></strong></p>
+<div class="highlight"><pre><span></span><code>import axios from &#39;axios&#39;;
+import G6 from &#39;@antv/g6&#39;;
+import &#39;./App.css&#39;;
+import React, { Component } from &#39;react&#39;;
+class App extends Component {
+  constructor() {
+    super();
+    this.state = { data: [] };
+  }
+  componentDidMount() {
+    axios
+      .get(&#39;http://127.0.0.1:8000/listPatients_Infected_By&#39;)
+      .then((res) =&gt; {
+        if (res.status === 200) {
+        }
+      })
+      .catch((err) =&gt; {
+        console.error(err);
+      });
+  }
+  render() {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;h1&gt;GSQL Query: listPatients_Infected_By(2000000205)&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+export default App;
+</code></pre></div>
+<p>The axios is making the request to '<a href="http://127.0.0.1:8000/listPatients_Infected_By">http://127.0.0.1:8000/listPatients_Infected_By</a>' and it is executed inside the componentDidMount method scope; Once the component is rendered onto the DOM then the life cycle executed the code inside of itself! The endpoint of '<a href="http://127.0.0.1:8000/listPatients_Infected_By">http://127.0.0.1:8000/listPatients_Infected_By</a>' is requested by axios, and it will be detail covered on its implemenataion in the next chapter.</p>
+<blockquote>
+<p>Let's assume the endpoint is created at this time.</p>
+</blockquote>
+<p><strong>Step IV Data preparing with AntV G6: <br></strong>
+Great job! The last step of the frontend part is to prepare the response data, which is a json format.The listPatients_Infected_By endpoint is a GET method API, and it is requested by the Axios of HTTP based libray. Data preparation is only executed when the request data status responds with a message code '200' as a successful message.</p>
+<blockquote>
+<p>Explanation on AntV G6 Implemenataion line by line:</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>// load the response data to component state
+this.setState({ data: res.data });
+// store the container id from the DOM
+const container = document.getElementById(&#39;container&#39;);
+// assign either current browser scoll width or 1280 pixel
+const width = container.scrollWidth || 1280;
+// assign either current browser scoll height or 1280 pixel
+const height = window.height || 800;
+
+// Once the data is set in the state and gather the DOM window dimension let&#39;s initiated a graph using Antv G6
+const graph = new G6.TreeGraph({
+// assign container name, width, height, and link display position
+container: &#39;container&#39;,
+width,
+height,
+linkCenter: true,
+// inside the modes assign properties with collapse-expland, drag-canvas, zoom-cavas, drag-node, activate-relations,
+modes: {
+    default: [
+    {
+        type: &#39;collapse-expand&#39;,
+        onChange: function onChange(item, collapsed) {
+        const data = item.get(&#39;model&#39;);
+        data.collapsed = collapsed;
+        return true;
+        },
+    },
+    &#39;drag-canvas&#39;,
+    &#39;zoom-canvas&#39;,
+    &#39;drag-node&#39;,
+    &#39;activate-relations&#39;,
+    ],
+},
+// lastly assign default node sid and the graph&#39;s layout
+defaultNode: {
+    size: 55,
+},
+layout: {
+    type: &#39;dendrogram&#39;,
+    direction: &#39;RL&#39;,
+    nodeSep: 20,
+    rankSep: 400,
+    radial: true,
+},
+});
+
+graph.node(function (node) {
+return {
+    label: `${node.name.slice(0, 3)}\n${node.name.slice(3)}`,
+    size: node.children.length ? 52 : 50,
+};
+});
+
+graph.data(this.state.data);
+graph.render();
+graph.fitView();
+graph.get(&#39;canvas&#39;).set(&#39;localRefresh&#39;, false);
+
+graph.on(&#39;node:click&#39;, (evt) =&gt; {
+const nodeItem = evt.item;
+if (!nodeItem) return;
+const item = nodeItem.getModel();
+if (item.url) {
+    window.open(item.url);
+}
+});
+
+if (typeof window !== &#39;undefined&#39;)
+window.onresize = () =&gt; {
+    if (!graph || graph.get(&#39;destroyed&#39;)) return;
+    if (
+    !container ||
+    !container.scrollWidth ||
+    !container.scrollHeight
+    )
+    return;
+    graph.changeSize(container.scrollWidth, container.scrollHeight);
+};
+</code></pre></div>
                 
                   
                 
@@ -735,7 +934,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../02_notes/" title="Chapter 02 - TigerGraph Cloud" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -744,7 +943,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Chapter 02 - Frontend
+                Chapter 02 - TigerGraph Cloud
               </div>
             </div>
           </a>

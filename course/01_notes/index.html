@@ -239,7 +239,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" class="md-tabs__link md-tabs__link--active">
+        <a href="../00_notes/" class="md-tabs__link md-tabs__link--active">
           Course Chapters
         </a>
       
@@ -424,6 +424,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../00_notes/" title="Chapter   0 - Tools" class="md-nav__link">
+      Chapter &nbsp;&nbsp;0 - Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -459,27 +471,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trusted-resources" class="md-nav__link">
-    Trusted Resources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    Tools
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#frontend" class="md-nav__link">
@@ -535,8 +526,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-nav__link">
-      Chapter 02 - Frontend
+    <a href="../02_notes/" title="Chapter 02 - TigerGraph Cloud" class="md-nav__link">
+      Chapter 02 - TigerGraph Cloud
     </a>
   </li>
 
@@ -547,8 +538,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../03_notes/" title="Chapter 03 - TigerGraph Cloud" class="md-nav__link">
-      Chapter 03 - TigerGraph Cloud
+    <a href="../03_notes/" title="Chapter 03 - Frontend" class="md-nav__link">
+      Chapter 03 - Frontend
     </a>
   </li>
 
@@ -776,27 +767,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trusted-resources" class="md-nav__link">
-    Trusted Resources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    Tools
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#frontend" class="md-nav__link">
     Frontend
   </a>
@@ -859,33 +829,8 @@
                 
                 
                 <h1 id="chapter-01-environment-setup">Chapter 01 - Environment Setup<a class="headerlink" href="#chapter-01-environment-setup" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Now that we have covered the high-level design of the application, we are ready to set up our local development environment and start creating our TigerGraph Fullstack App.</p>
-<p>In this tutorial, we will use macOS. However, nearly every code section has Windows equivalents and Linux equivalents. For Windows reference, check out <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">this page</a>!</p>
-<h2 id="trusted-resources">Trusted Resources<a class="headerlink" href="#trusted-resources" title="Permanent link">&para;</a></h2>
-<p>Before beginning, it’s important to choose reliable sources to learn from. Just like it's important to get your news from reputable sources, it's important to get your technical information from tried and trusted sources. Here are some of our personal favorites:</p>
-<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
-<details class="tip" open="open"><summary>The HTML/CSS/JS</summary><p>For anything to do with HTML, CSS, or JavaScript, <a href="https://developer.mozilla.org/en-US/">Mozilla's MDN</a> is our go-to. We literally have it open all the time 😅.It's a good idea to head directly to <a href="https://github.com/mdn/">MDN’s GitHub</a> page or their official documentation. It's best to head straight to the source. In this case, we will be using framework libraries like ReactJS and Antv G6.</p>
-</details>
-<details class="tip" open="open"><summary>The Browser</summary><p>Our recommendation is Chrome. The extension tools are amazing and the team behind them are amazing too. We will use the JSON Formatter extension as well.It can be installed via the following <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">hyperlink</a>.</p>
-</details>
-<details class="tip" open="open"><summary>The Editor</summary><p>Our recommendation is Visual Studio Code. It's free, open-source, and works well on Mac, Linux, and Windows. Perhaps one of the best features of VSCode is it has a huge amount of <a href="https://aka.ms/vscode-marketplace">available plugins</a> to choose from. Feel free to take a look!</p>
-<p>If you're not feeling VSCode, two other editors that are similar in their offering are <a href="https://www.sublimetext.com/">Sublime Text 3</a> and <a href="https://atom.io/">Atom</a>. Both are great tools! Both are free to download. However, Sublime requires a subscription basis of $65 in order to gain business licenses.</p>
-<p>If you want a more complete offering, you may investigate using an integrated development environment (commonly called an IDE.) The reigning, best IDE for front-end development is <a href="https://www.jetbrains.com/webstorm/">WebStorm</a>. WebStorm is a very powerful IDE that has a lot of features and tools built into it. It aims to be more than just an editor; it aims to be the entire development suite. Great tool!</p>
-</details>
-<details class="tip" open="open"><summary>The Terminal</summary><p>You will have to use a terminal, but it’s less scary than it seems, we promise! For the shell, we are going to use <a href="https://www.gnu.org/software/bash/">bash</a>. You don't need to install it unless you're using Windows (then use <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">these steps</a> to enable it). It's 99% already there on your computer unless you're using some obscure flavor of Linux. Whenever you open your Mac terminal, it'll be running bash by default unless it has been changed. To remedy any command, check out this <a href="https://explainshell.com/">hyperlink!</a></p>
-<p>However, there are other options as well. The reason we use bash is that it is so prevalent. Bash is everywhere. Everything you Google will have the answers written in bash. Other shell people swear by is <a href="http://www.zsh.org/">zsh</a>. All very cool but we  recommend looking at them later.</p>
-</details>
-<details class="tip" open="open"><summary>Node.js</summary><p>Node.js is a runtime built on top of Chrome's V8. It allows you to develop apps in JavaScript outside of the browser. It's single-threaded non-blocking and asynchronous. This is achieved by the use of an event loop at the core of Node.js. If you know JS then you already know how to develop with Node.js! Let’s take a closer look...</p>
-<p><strong>For Windows</strong></p>
-<p>If you're running Windows and not using Windows Subsystem Linux (WSL), I recommend you use the <a href="https://nodejs.org/en/">official installer</a> from the Node.js site. Make sure to choose the latest LTS version.</p>
-<p><strong>For Non-Windows</strong></p>
-<p>If you're not on Windows or you are using WSL, we recommend installing Node.js with <a href="https://github.com/nvm-sh/nvm">NVM (node version manager)</a>. NVM allows you to install many versions of Node.js at once and switch whenever you may need to. Additionally, NVM installs Node.js in a folder that will not have permission errors that you would otherwise run into with the official installer. Once you have nvm installed, you need to install a Node version. You can download the latest LTS version with this command.</p>
-<div class="highlight"><pre><span></span><code>nvm install --lts
-</code></pre></div>
-</details>
 <h2 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
-<p>With the tool installed, we are now ready to <font color='#DD6E0F'>create a quasar project</font> folder! First, it’s good practice to create a bigger scope project folder named <code>tigergraph_fullstack</code>.</p>
+<p>With the tool installed, we are now ready to <font color='#DD6E0F'>create a react project</font> folder! First, it’s good practice to create a bigger scope project folder named <code>tigergraph_fullstack</code>.</p>
 <div class="highlight"><pre><span></span><code>mkdir tigergraph_fullstack
 cd tigergraph_fullstack
 </code></pre></div>
@@ -895,13 +840,13 @@ cd tigergraph_fullstack
 <p>After the create React project command, you should see the terminal prints:</p>
 <p><ins class="critic">We suggest that you begin by typing:</ins></p>
 <p><ins class="critic">cd front</ins></p>
-<p><ins class="critic">yarn start</ins></p>
-<p><ins class="critic">Happy hacking!</ins></p>
-<p>Now, we can open our <code>tigergraph_fullstack</code> project with vscode and open the terminal inside vscode as well. This can be done with a shortcut: ctrl + ` (for windows) or cmd + ` (for mac)</p>
+<p><ins class="critic">npm start</ins></p>
+<p>Now, we can open our <code>tigergraph_fullstack</code> project with vscode and open the terminal inside vscode as well. This can be done with a shortcut: ctrl + `</p>
 <p>&nbsp; &nbsp;</p>
-<p>Without further ado, let’s start our React project!</p>
+<p>Without further ado, let’s install some libraies and start our React project!</p>
 <div class="highlight"><pre><span></span><code>tigergraph_fullstack$ cd front
-tigergraph_fullstack$ yarn start
+front$ npm i axios @antv/g6
+front$ npm start
 
 Compiled successfully!
 
@@ -911,27 +856,26 @@ You can now view front in the browser.
   On Your Network:  http://192.168.50.45:3000
 
 Note that the development build is not optimized.
-To create a production build, use yarn build.
+To create a production build, use npm build.
 </code></pre></div>
-<p>With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command “yarn start” inside the project folder (front).</p>
+<p>With the above lines, we have created our frontend project folder named front, and we have also run the project by using the command npm start” inside the project folder (front).</p>
 <p>Now, we can use a browser to open the project with URL: <a href="http://localhost:3000">http://localhost:3000</a></p>
+<p>Awesome! Next up, let’s examine the middleware, an essential part of our project.</p>
 <p>&nbsp; &nbsp;</p>
-<p>Awesome! Next, we will use some libraries to add to our fullstack app, so let’s install them inside the quasar project folder (front). To do this, we can run the following.</p>
-<div class="highlight"><pre><span></span><code>front$ npm i axios
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>front$ npm i @antv/g6
-</code></pre></div>
-<p>&nbsp; &nbsp;</p>
-<p>Neat! Next up, let’s examine the middleware, an essential part of our project.</p>
 <h2 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h2>
 <h3 id="python-virtual-environment">Python Virtual Environment<a class="headerlink" href="#python-virtual-environment" title="Permanent link">&para;</a></h3>
-<p>To start off, we'll create a python virtual enviroment (venv). A venv is a tool which keeps different dependencies of different projects ioslated. Hence, using this, we won'thave to pip install all of the packages on each new project.</p>
-<p>Step I: Create Middleware Directory
-Let's create a middleware project directory in parralle to frontend directory</p>
+<p>To start off, we'll create a python virtual enviroment (venv). A venv is a tool which keeps different dependencies of different projects ioslated. Hence, using this, we won't have to pip install all of the packages on each new project.</p>
+<p>Step I. Create Middleware Directory:<br>
+Let's create a middleware directory in parralle to the front directory</p>
 <div class="highlight"><pre><span></span><code>tigergraph-fullstack$ mkdir middleware
 tigergraph-fullstack$ cd middleware
 </code></pre></div>
-<p>Step II: Create your Virtual Environment
+<p>The inside of tigergraph-fullstack project directory looks like below:</p>
+<div class="highlight"><pre><span></span><code>.
+├─ front
+└─ middleware
+</code></pre></div>
+<p>Step II. Create your Virtual Environment:<br>
 Now using Python, we can create a virtual environment using venv and Python.</p>
 <div class="highlight"><pre><span></span><code>middleware$ python3 -m venv venv
 </code></pre></div>
@@ -939,13 +883,13 @@ Now using Python, we can create a virtual environment using venv and Python.</p>
 <div class="highlight"><pre><span></span><code>middleware$ source venv/bin/activate
 </code></pre></div>
 <p>After running activate the virtual enviroment, you should see a (venv) in front of your terminal.</p>
-<p>Step III: Install Packages
-For this project, we’ll be using pyTigerGraph and Fast PI. FastAPI also uses a library called <a href="https://www.uvicorn.org/">uvicorn</a>, so we’ll install that as well.</p>
+<p>Step III. Install Packages:<br>
+For this project, we’ll be using pyTigerGraph and FastAPI. FastAPI also uses a library called <a href="https://www.uvicorn.org/">uvicorn</a>, so we’ll install that as well.</p>
 <div class="highlight"><pre><span></span><code>middleware$ pip install pyTigerGraph fastapi uvicorn
 </code></pre></div>
 <p>Perfect! After running this, we should be ready to go!</p>
 <h3 id="fastapi">FastAPI<a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
-<p>Step I: Create a Basic API
+<p>Step I. Create a Basic API:<br>
 Now, let’s create our first basic API. First, let’s create a file called “main.py.”</p>
 <div class="highlight"><pre><span></span><code>touch main.py
 </code></pre></div>
@@ -960,12 +904,12 @@ def read_root():
 def read_item(item_id: int, q: Optional[str] = None):
      return {&quot;item_id&quot;: item_id, &quot;q&quot;: q}
 </code></pre></div>
-<p>Step II: Run the API
-Save main.py then run it with the following command:</p>
+<p>Step II. Run the API:<br>
+Save main.py then run it with the command.</p>
 <div class="highlight"><pre><span></span><code>uvicorn main:app --reload
 </code></pre></div>
 <p>Here, we’re using uvicorn to run our file. The filename is main and the --reload has the server automatically reload after we save new changes to the file.</p>
-<p>Step III: Explore the Custom Endpoints
+<p>Step III. Explore the Custom Endpoints:<br>
 Open a browser to the page <a href="https://127.0.0.1:8000">https://127.0.0.1:8000</a>. There, you’ll find the {“Hello”: “World”} from the first function.</p>
 <p><img alt="fastapi-hello-world" src="../img/fastapi-hello-world.png" /></p>
 <p>Now, let’s go to <a href="https://127.0.0.1:8000/items/1">https://127.0.0.1:8000/items/1</a>. That will result in {“item_id”:1,”q”:null}.</p>
@@ -974,24 +918,30 @@ Open a browser to the page <a href="https://127.0.0.1:8000">https://127.0.0.1:80
 <p>Let’s give q a value by going to <a href="https://127.0.0.1:8000/items/1?q=test">https://127.0.0.1:8000/items/1?q=test</a>.</p>
 <p><img alt="fastapi-get-test" src="../img/fastapi-get-test.png" /></p>
 <p>Perfect! Here, we passed the optional parameter q as test for the items endpoint.</p>
-<p>Step IV: Explore the Prebuilt Endpoints
-Finally, FastAPI has a few prebuilt endpoints, specifically for creating documentation. First, if you go to <a href="http://127.0.0.1:8000/docs">http://127.0.0.1:8000/docs</a>, you’ll find interactive documentation for the endpoints we created.</p>
+<p>Step IV. Explore the Prebuilt Endpoints:<br>
+Finally, FastAPI has a 2 prebuilt endpoints dedicated for API documentation. First, if you go to <a href="http://127.0.0.1:8000/docs">http://127.0.0.1:8000/docs</a>, you’ll find interactive documentation for the endpoints we created.</p>
 <p><img alt="fastapi-docs" src="../img/fastapi-docs.png" /></p>
-<p>Not a fan of that style? If you go to <a href="http://127.0.0.1:8000/redoc">http://127.0.0.1:8000/redoc</a>, you’ll find a different style of documentation.</p>
+<p>If you go to <a href="http://127.0.0.1:8000/redoc">http://127.0.0.1:8000/redoc</a>, you’ll find a different style of documentation.</p>
 <p><img alt="fastapi-redoc" src="../img/fastapi-redoc.png" /></p>
-<p>And with that, let’s now start up the TigerGraph server to integrate pyTigerGraph to our endpoints.</p>
+<p>And with that, let’s now setup the <a href="https://tgcloud.io/">TigerGraph Cloud</a>.</p>
 <h2 id="tigergraph-cloud">TigerGraph Cloud<a class="headerlink" href="#tigergraph-cloud" title="Permanent link">&para;</a></h2>
-<p>Step I: Create your Solution
+<p>Step I. Create your Solution:<br>
 Navigate to <a href="https://tgcloud.io/">TigerGraph Cloud</a> and create an account if you haven’t already.</p>
 <p><img alt="tigercloud" src="../img/tigercloud.png" /></p>
-<p>Once logged in, navigate to the <a href="https://tgcloud.io/app/solutionsti">“My Solutions” tab</a>. Next, press the blue “Create Solution” button.</p>
+<p>Once logged in, navigate to the ⓵ <a href="https://tgcloud.io/app/solutionsti">“My Solutions” tab</a>. Next, press the blue ⓶ “Create Solution” button.</p>
 <p><img alt="tg-my-solutions" src="../img/tg-my-solutions.png" /></p>
 <p>We’ll be using COVID-19 Analysis v3.1.5 starter kit. To select it, either scroll down or select the “Geospatial Analysis” category and click on the COVID-19 option. Once it’s selected, press “Next.”</p>
 <p><img alt="tg-solutions-covid" src="../img/tg-solutions-covid.png" /></p>
+<p>On the next page, don’t change anything, scroll down, and press “Next.”</p>
+<p><img alt="tg-solutions-covid-next" src="../img/tg-solutions-covid-next.png" /></p>
 <p>Customize the third page to best describe your graph. Here, keep note of your password and subdomain, as we’ll be using this in pyTigerGraph. Press next.</p>
-<p>Note: Write down your subdomain and password!</p>
-<p><img alt="tg-solutions-covid-next" src="img/tg-solutions-covid-next.png" /></p>
+<p>(Write down your subdomain and password)</p>
+<p><img alt="tg-solutions-covid-description" src="../img/tg-solutions-covid-description.png" /></p>
 <p>On the final page, review that everything looks good, then press “Submit.”</p>
+<p><img alt="tg-solutions-covid-comfirmation" src="../img/tg-solutions-covid-comfirmation.png" /></p>
+<p>(This may take a few minutes)</p>
+<p>Once the dot by your solution is green and says “Ready,” then it's ready to create fullstack.</p>
+<p><img alt="tg-solutions-covid-create-loading" src="../img/tg-solutions-covid-create-loading.png" /></p>
                 
                   
                 
@@ -1028,7 +978,7 @@ Navigate to <a href="https://tgcloud.io/">TigerGraph Cloud</a> and create an acc
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../01_importance/" title="Why Fullstack" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../00_notes/" title="Chapter   0 - Tools" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1037,19 +987,19 @@ Navigate to <a href="https://tgcloud.io/">TigerGraph Cloud</a> and create an acc
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Why Fullstack
+                Chapter &nbsp;&nbsp;0 - Tools
               </div>
             </div>
           </a>
         
         
-          <a href="../02_notes/" title="Chapter 02 - Frontend" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../02_notes/" title="Chapter 02 - TigerGraph Cloud" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Chapter 02 - Frontend
+                Chapter 02 - TigerGraph Cloud
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
