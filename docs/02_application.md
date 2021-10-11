@@ -3,6 +3,7 @@ template: overrides/main.html
 title: Finished Product
 ---
 
-# Fullstack COVID-19 Tracker
+# Fullstack Demo
 
-> TODO: Coming soon!
+> TODO: Coming soon!<br>
+> TODO: Screenshots & Link

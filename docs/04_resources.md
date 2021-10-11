@@ -6,9 +6,9 @@ All the external resources from **Course Chapters**, all in one place. 🧐
 
 ## Ch 01 - Environment Setup
 
-## Ch 02 - Frontend
+## Ch 02 - TigerGraph Cloud
 
-## Ch 03 - TigerGraph Cloud
+## Ch 03 - Frontend
 
 ## Ch 04 - Middleware
 

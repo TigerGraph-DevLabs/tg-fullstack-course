@@ -144,9 +144,10 @@ nav:
       - Why Fullstack: 01_importance.md
 
   - Course Chapters:
+    - Chapter &nbsp;&nbsp;0 - Tools: course/00_notes.md
     - Chapter 01 - Environment Setup: course/01_notes.md
-    - Chapter 02 - Frontend: course/02_notes.md
-    - Chapter 03 - TigerGraph Cloud: course/03_notes.md
+    - Chapter 02 - TigerGraph Cloud: course/02_notes.md
+    - Chapter 03 - Frontend: course/03_notes.md
     - Chapter 04 - Middleware: course/04_notes.md
     - Chapter 05 - Deployment: course/05_notes.md
 
