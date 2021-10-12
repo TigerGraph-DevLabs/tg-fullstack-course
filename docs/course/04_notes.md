@@ -5,16 +5,14 @@ template: overrides/main.html
 # Frontend
 
 **Introduction**<br>
-The object to is create a simple tree graph using AntV G6 from TigerGraph Cloud and Middlware.
-
-> Like below:
+At the end of this chapter, the json data from `listPatients_Infected_By` endpoint will become this visualization graph using AntV G6.
 
 ![tree-graph-demo](img/tree-graph-demo.png){: style="border-style: inset;"}
 
 &nbsp; &nbsp;
 
 **Step I. Resume: <br>**
-Let's continue where we left off from the frontend setup. If the React project is off then execute the project!
+If the React project is off then execute the project!
 
 ```
 tigergraph-fullstack$ cd front

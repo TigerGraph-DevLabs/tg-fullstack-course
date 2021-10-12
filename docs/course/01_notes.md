@@ -4,7 +4,7 @@ template: overrides/main.html
 
 # Chapter 01 - Environment Setup
 
-## Frontend
+# Frontend
 
 With the tool installed, we are now ready to <font color='#DD6E0F'>create a react project</font> folder! First, it’s good practice to create a bigger scope project folder named `tigergraph_fullstack`.
 

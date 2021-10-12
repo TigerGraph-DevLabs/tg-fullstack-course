@@ -8,11 +8,9 @@ All the external resources from **Course Chapters**, all in one place. 🧐
 
 ## Ch 02 - TigerGraph Cloud
 
-## Ch 03 - Frontend
+## Ch 03 - Middleware
 
-## Ch 04 - Middleware
-
-## Ch 05 - Deployment
+## Ch 04 - Frontend
 
 ## Misc - Additional Resources
 
