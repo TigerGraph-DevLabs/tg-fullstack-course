@@ -660,10 +660,90 @@
 Perfect! Now we’re ready to integrate pyTigerGraph into our API. Open <code>main.py</code> in your editor of choice and import pyTigerGraph.</p>
 <div class="highlight"><pre><span></span><code>import pyTigerGraph as tg
 </code></pre></div>
-<p>Next, create a connection to your TigerGraph Cloud server.</p>
-<div class="highlight"><pre><span></span><code>conn = tg.TigerGraphConnection(host=Credential.HOST, username=Credential.USERNAME, password=Credential.PASSWORD, graphname=Credential.GRAPHNAME)
+<p>To make this safer, create a configs.py file and import the credentials from there.</p>
+<div class="highlight"><pre><span></span><code>touch configs.py
+</code></pre></div>
+<p>In configs.py:</p>
+<div class="highlight"><pre><span></span><code>HOST=&#39;https://covid-fullstack.i.tgcloud.io&#39;
+USERNAME=&#39;tigergraph&#39;
+PASSWORD=&#39;tigergraph&#39;
+GRAPHNAME=&#39;MyGraph&#39;
+</code></pre></div>
+<p>Let's come back to <code>main.py</code>, create a connection to your TigerGraph Cloud server.</p>
+<div class="highlight"><pre><span></span><code>import config as Credential
+conn = tg.TigerGraphConnection(host=Credential.HOST, username=Credential.USERNAME, password=Credential.PASSWORD, graphname=Credential.GRAPHNAME)
 conn.apiToken = conn.getToken(conn.createSecret())
 </code></pre></div>
+<p>If this runs successfully, then you’re connected to TigerGraph Cloud! Congrats!</p>
+<p><strong>Step II. Establish the Cross-Origin Resource Sharing (CORS): <br></strong>
+Since the communication between front and middleware don't specify a port, it is essential configure the CORS.<br>
+<br>
+Let's import CORSMiddleware in <code>main.py</code></p>
+<div class="highlight"><pre><span></span><code>from fastapi.middleware.cors import CORSMiddleware
+</code></pre></div>
+<p>Create a list of allowed origins (as strings).</p>
+<div class="highlight"><pre><span></span><code>origins = [
+    &quot;http://localhost:3000&quot;,
+    &quot;https://localhost:3000&quot;,
+]
+</code></pre></div>
+<p>Sspecify the middleware allows:</p>
+<ul>
+<li>Credentials (Authorization headers, Cookies, etc).<br></li>
+<li>Specific <code>HTTP</code> methods (<code>POST</code>, <code>PUT</code>) or all of them with the wildcard "*".</li>
+<li>Specific <code>HTTP</code> headers or all of them with the wildcard "*".</li>
+</ul>
+<div class="highlight"><pre><span></span><code>app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=[&quot;*&quot;],
+    allow_headers=[&quot;*&quot;],
+)
+</code></pre></div>
+<p><strong>Step III. Create Query Endpoints: <br></strong>
+Let’s first run TigerGraph queries with FastAPI, starting with listPatients_Infected_By.</p>
+<div class="highlight"><pre><span></span><code>@app.get(&quot;/listPatients_Infected_By&quot;)
+def readListPatients_Infected_By():
+    gQuery = conn.runInstalledQuery(&quot;listPatients_Infected_By&quot;, {&quot;p&quot;:2000000205})[0][&#39;Infected_Patients&#39;]
+    return gQuery
+</code></pre></div>
+<p>Break this down, we're running the <code>listPatients_Infected_By</code> query that is installed in GraphStudio. As the query parameter takes the Patient Vertex ID, the output return a list of infected Patients' ID.</p>
+<p>If you haven’t already, run the file. Open <a href="http://127.0.0.1:8000/listPatients_Infected_By">http://127.0.0.1:8000/listPatients_Infected_By</a> to run the query.</p>
+<p><img alt="pyTG-gsql-output" src="../img/pyTG-gsql-output.png" /></p>
+<p>Awesome! Now, the data need to be transform into nested tree json format with keys like name (String), id (String), and children (list of objects).</p>
+<p>After adding the data transformation, the <code>GET</code> method of <code>listPatients_Infected_By</code> would look like this</p>
+<div class="highlight"><pre><span></span><code>@app.get(&quot;/listPatients_Infected_By&quot;)
+def readListPatients_Infected_By():
+    gQuery = conn.runInstalledQuery(&quot;listPatients_Infected_By&quot;, {&quot;p&quot;:2000000205})[0][&#39;Infected_Patients&#39;]
+    count = 0
+    children = []
+    for p in gQuery:
+        children.append({
+        &quot;children&quot;: [],
+        &quot;collapsed&quot;: True,
+        &quot;id&quot;: str(count),
+        &quot;name&quot;: p[-3:] + &quot;Patient&quot;,
+
+        })
+        count+=1
+
+    result = {
+        &quot;name&quot;: &quot;205 ROOT&quot;,
+        &quot;id&quot;: &quot;root&quot;,
+        &quot;children&quot;: children,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#FFDBD9&quot;,
+            &quot;stroke&quot;:  &quot;#FF6D67&quot;
+        }
+    }
+    return result
+</code></pre></div>
+<p>If you open the endpoint <a href="http://127.0.0.1:8000/listPatients_Infected_By">http://127.0.0.1:8000/listPatients_Infected_By</a>, again.<br>
+You will see this!</p>
+<p><img alt="pyTG-gsql-output2" src="../img/pyTG-gsql-output2.png" /></p>
+<p>You have transform the data, and the data is ready for the frontend and AntV G6.</p>
+<p>👏 Great job! 👏 You have create a <code>GET</code> method API using TigerGraph Cloud and FastAPI &amp; pyTigerGraph!</p>
                 
                   
                 
