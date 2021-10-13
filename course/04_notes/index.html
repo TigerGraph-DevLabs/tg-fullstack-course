@@ -469,9 +469,84 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chapter 04 - Frontend
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="Chapter 04 - Frontend" class="md-nav__link md-nav__link--active">
       Chapter 04 - Frontend
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-i-resume" class="md-nav__link">
+    Step I. Resume
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-ii-removing-the-hello-world" class="md-nav__link">
+    Step II. Removing the Hello World
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-iii-libraries" class="md-nav__link">
+    Step III. Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-iv-loading-data-at-front" class="md-nav__link">
+    Step IV. Loading Data at front
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-entire-appjs" class="md-nav__link">
+    The entire App.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-v-data-preparing-with-antv-g6" class="md-nav__link">
+    Step V. Data preparing with AntV G6
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -636,6 +711,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-i-resume" class="md-nav__link">
+    Step I. Resume
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-ii-removing-the-hello-world" class="md-nav__link">
+    Step II. Removing the Hello World
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-iii-libraries" class="md-nav__link">
+    Step III. Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-iv-loading-data-at-front" class="md-nav__link">
+    Step IV. Loading Data at front
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-entire-appjs" class="md-nav__link">
+    The entire App.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-v-data-preparing-with-antv-g6" class="md-nav__link">
+    Step V. Data preparing with AntV G6
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -656,12 +790,12 @@
                 
                 
                 <h1 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h1>
-<p><strong>Introduction</strong><br>
-At the end of this chapter, the json data from <code>listPatients_Infected_By</code> endpoint will become this visualization graph using AntV G6.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>At the end of this chapter, the json data from <code>listPatients_Infected_By</code> endpoint will become this visualization graph using AntV G6.</p>
 <p><img alt="tree-graph-demo" src="../img/tree-graph-demo.png" style="border-style: inset;" /></p>
 <p>&nbsp; &nbsp;</p>
-<p><strong>Step I. Resume: <br></strong>
-If the React project is off then execute the project!</p>
+<h2 id="step-i-resume">Step I. Resume<a class="headerlink" href="#step-i-resume" title="Permanent link">&para;</a></h2>
+<p>If the React project is off then execute the project!</p>
 <div class="highlight"><pre><span></span><code>tigergraph-fullstack$ cd front
 front$ npm start
 
@@ -678,8 +812,8 @@ To create a production build, use npm build.
 <p>Now, we can use a browser to open the project with URL: <a href="http://localhost:3000">http://localhost:3000</a>
 <img alt="react-hello-world" src="../img/react-hello-world.png" /></p>
 <p>&nbsp; &nbsp;</p>
-<p><strong>Step II. Removeing the Hello World: <br></strong>
-The npx creates the React project with the files and folder structure. Let's open the file 'App.js' located in '/tigergraph-fullstack/front/src/App.js'</p>
+<h2 id="step-ii-removing-the-hello-world">Step II. Removing the Hello World<a class="headerlink" href="#step-ii-removing-the-hello-world" title="Permanent link">&para;</a></h2>
+<p>The npx creates the React project with the files and folder structure. Let's open the file 'App.js' located in '/tigergraph-fullstack/front/src/App.js'</p>
 <p><img alt="react-folder-structure" src="../img/react-folder-structure.png" style="height:300px;width:240px" /></p>
 <p>Replace the code over the current existing code in 'App.js'.</p>
 <div class="highlight"><pre><span></span><code>import &#39;./App.css&#39;;
@@ -703,15 +837,15 @@ export default App;
 <p><img alt="rt-rm-hw" src="../img/rt-rm-hw.png" style="border-style: inset;" /></p>
 <p>From the header/h1 information, we are going to create a graph showing a list of patients infected by the vertex id of 2000000205.</p>
 <p>&nbsp; &nbsp;</p>
-<p><strong>Step III. Libraries: <br></strong>
-Let's import all the libraies inside the 'App.js' on first two lines.</p>
+<h2 id="step-iii-libraries">Step III. Libraries<a class="headerlink" href="#step-iii-libraries" title="Permanent link">&para;</a></h2>
+<p>Let's import all the libraies inside the 'App.js' on first two lines.</p>
 <div class="highlight"><pre><span></span><code>import axios from &#39;axios&#39;;
 import G6 from &#39;@antv/g6&#39;;
 </code></pre></div>
-<p><a href="https://antv.vision/en">AntV G6</a> will be used in this tutorial which is a new generation of data visualization solution from Ant Group. In addition, Axios provides a small package with a very extensible interface. <a href="https://axios-http.com/">Learn more</a></p>
+<p><a href="https://antv.vision/en">AntV G6</a> will be used in this tutorial which is a new generation of data visualization solution from Ant Group. In addition, Axios provides a small package with a very extensible interface. <a href="https://github.com/axios/axios">Learn more</a></p>
 <p>&nbsp; &nbsp;</p>
-<p><strong>Step IV. Loading Data at front: <br></strong>
-Three key points to cover from loading the data at frontend which are 1) React constructor, 2) React life Cycle, and 3) Axios (HTTP request).
+<h2 id="step-iv-loading-data-at-front">Step IV. Loading Data at front<a class="headerlink" href="#step-iv-loading-data-at-front" title="Permanent link">&para;</a></h2>
+<p>Three key points to cover from loading the data at frontend which are 1) React constructor, 2) React life Cycle, and 3) Axios (HTTP request).
 <br/>
 <br/>1) The React constructor is a method that's automatically called during the creation of an object from a class. Therefore, it is used to bind event handlers to the components. In other words, we will use to create a state to store data object.</p>
 <div class="highlight"><pre><span></span><code>constructor() {
@@ -731,7 +865,7 @@ this.state = { data: [] };
     console.error(err);
     });
 </code></pre></div>
-<p><strong>The entire App.js: <br></strong></p>
+<h2 id="the-entire-appjs">The entire App.js<a class="headerlink" href="#the-entire-appjs" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>import axios from &#39;axios&#39;;
 import G6 from &#39;@antv/g6&#39;;
 import &#39;./App.css&#39;;
@@ -764,8 +898,8 @@ export default App;
 </code></pre></div>
 <p>The axios is making the request to '<a href="http://127.0.0.1:8000/listPatients_Infected_By">http://127.0.0.1:8000/listPatients_Infected_By</a>' and it is executed inside the componentDidMount method scope; Once the component is rendered onto the DOM then the life cycle executed the code inside of itself!</p>
 <p>&nbsp; &nbsp;</p>
-<p><strong>Step V. Data preparing with AntV G6: <br></strong>
-Great job!<br>
+<h2 id="step-v-data-preparing-with-antv-g6">Step V. Data preparing with AntV G6<a class="headerlink" href="#step-v-data-preparing-with-antv-g6" title="Permanent link">&para;</a></h2>
+<p>Great job!<br>
 Next, the frontend prepares the response data, which is a json format for the AntV G6. The response data is from listPatients_Infected_By which is a GET method API. Lastly, the data is set to the state and initiated the G6 visualization graph.</p>
 <blockquote>
 <p>Explanation on AntV G6 Implemenataion line by line:</p>

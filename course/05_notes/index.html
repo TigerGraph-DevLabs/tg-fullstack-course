@@ -481,9 +481,82 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chapter 05 - Conculsion
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="Chapter 05 - Conculsion" class="md-nav__link md-nav__link--active">
       Chapter 05 - Conculsion
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#more-components-and-error-handling" class="md-nav__link">
+    More Components and Error Handling
+  </a>
+  
+    <nav class="md-nav" aria-label="More Components and Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-components" class="md-nav__link">
+    More Components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    Error Handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulation" class="md-nav__link">
+    🎊 Congratulation! 🎊
+  </a>
+  
+    <nav class="md-nav" aria-label="🎊 Congratulation! 🎊">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-have-create-a-fullstack-with-tigergraph-cloud-graph-database" class="md-nav__link">
+    You have create a fullstack with 🐅 TigerGraph Cloud Graph Database!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -636,6 +709,63 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#more-components-and-error-handling" class="md-nav__link">
+    More Components and Error Handling
+  </a>
+  
+    <nav class="md-nav" aria-label="More Components and Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-components" class="md-nav__link">
+    More Components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    Error Handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulation" class="md-nav__link">
+    🎊 Congratulation! 🎊
+  </a>
+  
+    <nav class="md-nav" aria-label="🎊 Congratulation! 🎊">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-have-create-a-fullstack-with-tigergraph-cloud-graph-database" class="md-nav__link">
+    You have create a fullstack with 🐅 TigerGraph Cloud Graph Database!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -656,7 +786,81 @@
                 
                 
                 <h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
-<p>Congratulation</p>
+<h2 id="more-components-and-error-handling">More Components and Error Handling<a class="headerlink" href="#more-components-and-error-handling" title="Permanent link">&para;</a></h2>
+<h3 id="more-components">More Components<a class="headerlink" href="#more-components" title="Permanent link">&para;</a></h3>
+<p>First of all, change directory to react project front and npm install <a href="https://react-bootstrap.github.io/">React Boostrap</a></p>
+<div class="highlight"><pre><span></span><code>npm install react-bootstrap@next bootstrap@5.1.1
+</code></pre></div>
+<p>Import React Boostrap in <code>App.js</code></p>
+<div class="highlight"><pre><span></span><code>import { Navbar, Container, Nav } from &#39;react-bootstrap&#39;;
+import &#39;bootstrap/dist/css/bootstrap.min.css&#39;;
+</code></pre></div>
+<p>Let's create a header.<br>
+Create the Navbar inside render function. The Navbar is in-between the <code>className App</code> and on top of <code>h1</code> element.</p>
+<div class="highlight"><pre><span></span><code>&lt;&gt;
+    &lt;Navbar style={{ backgroundColor: &#39;#F78117&#39;, marginBottom: 24 }}&gt;
+        &lt;Container&gt;
+            &lt;Navbar.Brand href=&quot;#home&quot;&gt;TigerGraph&lt;/Navbar.Brand&gt;
+            &lt;Nav className=&quot;me-auto&quot;&gt;
+            &lt;Nav.Link href=&quot;https://www.tigergraph.com/&quot;&gt;
+                Learn more
+            &lt;/Nav.Link&gt;
+            &lt;/Nav&gt;
+        &lt;/Container&gt;
+    &lt;/Navbar&gt;
+&lt;/&gt;
+</code></pre></div>
+<p>Let's add a border and margin for the Tree Graph Canvas.<br>
+Wrap the <code>id container</code> and <code>h1</code> element with a div tag.</p>
+<div class="highlight"><pre><span></span><code>&lt;div style={{ border: &#39;4mm ridge #e3e3e3&#39;, margin: 50 }}&gt;
+    &lt;h1&gt;GSQL Query: listPatients_Infected_By(2000000205)&lt;/h1&gt;
+    &lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div>
+<h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
+<p>In <code>main.py</code> file adding <code>try</code> and <code>except</code> in between making connection on TigerGraph Cloud.</p>
+<div class="highlight"><pre><span></span><code>try:
+     conn = tg.TigerGraphConnection(host=Credential.HOST, username=Credential.USERNAME, password=Credential.PASSWORD, graphname=Credential.GRAPHNAME)
+     conn.apiToken = conn.getToken(conn.createSecret())
+     app = FastAPI()
+except Exception as e:
+    import time
+    print(e)
+    time.sleep(50000)
+</code></pre></div>
+<p>Also, adding the <code>try</code> and <code>except</code> in between the <code>listPatients_Infected_By</code> API Endpoint</p>
+<div class="highlight"><pre><span></span><code>@app.get(&quot;/listPatients_Infected_By&quot;)
+def readListPatients_Infected_By():
+     try:
+          gQuery = conn.runInstalledQuery(&quot;listPatients_Infected_By&quot;, {&quot;p&quot;:2000000205})[0][&#39;Infected_Patients&#39;]
+          count = 0
+          children = []
+          for p in gQuery:
+               children.append({
+               &quot;children&quot;: [],
+               &quot;collapsed&quot;: True,
+               &quot;id&quot;: str(count),
+               &quot;name&quot;: p[-3:] + &quot;Patient&quot;,
+
+               })
+               count+=1
+
+          result = {
+               &quot;name&quot;: &quot;205 ROOT&quot;,
+               &quot;id&quot;: &quot;root&quot;,
+               &quot;children&quot;: children,
+               &quot;style&quot;: {
+                    &quot;fill&quot;: &quot;#FFDBD9&quot;,
+                    &quot;stroke&quot;:  &quot;#FF6D67&quot;
+               }
+          }
+          return result
+     except:
+          return []
+</code></pre></div>
+<h2 id="congratulation">🎊 Congratulation! 🎊<a class="headerlink" href="#congratulation" title="Permanent link">&para;</a></h2>
+<p><img alt="giphy" src="../img/giphy.gif" /></p>
+<h3 id="you-have-create-a-fullstack-with-tigergraph-cloud-graph-database">You have create a fullstack with 🐅 TigerGraph Cloud Graph Database!<a class="headerlink" href="#you-have-create-a-fullstack-with-tigergraph-cloud-graph-database" title="Permanent link">&para;</a></h3>
                 
                   
                 

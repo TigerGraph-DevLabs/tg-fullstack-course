@@ -457,9 +457,56 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chapter 03 - Middleware
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="Chapter 03 - Middleware" class="md-nav__link md-nav__link--active">
       Chapter 03 - Middleware
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-i-connect-to-your-tigergraph-cloud-solution" class="md-nav__link">
+    Step I. Connect to your TigerGraph Cloud Solution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-ii-establish-the-cross-origin-resource-sharing-cors" class="md-nav__link">
+    Step II. Establish the Cross-Origin Resource Sharing (CORS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-iii-create-query-endpoints" class="md-nav__link">
+    Step III. Create Query Endpoints
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -636,6 +683,37 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-i-connect-to-your-tigergraph-cloud-solution" class="md-nav__link">
+    Step I. Connect to your TigerGraph Cloud Solution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-ii-establish-the-cross-origin-resource-sharing-cors" class="md-nav__link">
+    Step II. Establish the Cross-Origin Resource Sharing (CORS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-iii-create-query-endpoints" class="md-nav__link">
+    Step III. Create Query Endpoints
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -656,14 +734,14 @@
                 
                 
                 <h1 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h1>
-<p><strong>Step I. Connect to your TigerGraph Cloud Solution: <br></strong>
-Perfect! Now we’re ready to integrate pyTigerGraph into our API. Open <code>main.py</code> in your editor of choice and import pyTigerGraph.</p>
+<h2 id="step-i-connect-to-your-tigergraph-cloud-solution">Step I. Connect to your TigerGraph Cloud Solution<a class="headerlink" href="#step-i-connect-to-your-tigergraph-cloud-solution" title="Permanent link">&para;</a></h2>
+<p>Perfect! Now we’re ready to integrate pyTigerGraph into our API. Open <code>main.py</code> in your editor of choice and import pyTigerGraph.</p>
 <div class="highlight"><pre><span></span><code>import pyTigerGraph as tg
 </code></pre></div>
 <p>To make this safer, create a configs.py file and import the credentials from there.</p>
-<div class="highlight"><pre><span></span><code>touch configs.py
+<div class="highlight"><pre><span></span><code>touch config.py
 </code></pre></div>
-<p>In configs.py:</p>
+<p>In <code>config.py</code>:</p>
 <div class="highlight"><pre><span></span><code>HOST=&#39;https://covid-fullstack.i.tgcloud.io&#39;
 USERNAME=&#39;tigergraph&#39;
 PASSWORD=&#39;tigergraph&#39;
@@ -675,8 +753,8 @@ conn = tg.TigerGraphConnection(host=Credential.HOST, username=Credential.USERNAM
 conn.apiToken = conn.getToken(conn.createSecret())
 </code></pre></div>
 <p>If this runs successfully, then you’re connected to TigerGraph Cloud! Congrats!</p>
-<p><strong>Step II. Establish the Cross-Origin Resource Sharing (CORS): <br></strong>
-Since the communication between front and middleware don't specify a port, it is essential configure the CORS.<br>
+<h2 id="step-ii-establish-the-cross-origin-resource-sharing-cors">Step II. Establish the Cross-Origin Resource Sharing (CORS)<a class="headerlink" href="#step-ii-establish-the-cross-origin-resource-sharing-cors" title="Permanent link">&para;</a></h2>
+<p>Since the communication between front and middleware don't specify a port, it is essential configure the CORS.<br>
 <br>
 Let's import CORSMiddleware in <code>main.py</code></p>
 <div class="highlight"><pre><span></span><code>from fastapi.middleware.cors import CORSMiddleware
@@ -701,8 +779,8 @@ Let's import CORSMiddleware in <code>main.py</code></p>
     allow_headers=[&quot;*&quot;],
 )
 </code></pre></div>
-<p><strong>Step III. Create Query Endpoints: <br></strong>
-Let’s first run TigerGraph queries with FastAPI, starting with listPatients_Infected_By.</p>
+<h2 id="step-iii-create-query-endpoints">Step III. Create Query Endpoints<a class="headerlink" href="#step-iii-create-query-endpoints" title="Permanent link">&para;</a></h2>
+<p>Let’s first run TigerGraph queries with FastAPI, starting with listPatients_Infected_By.</p>
 <div class="highlight"><pre><span></span><code>@app.get(&quot;/listPatients_Infected_By&quot;)
 def readListPatients_Infected_By():
     gQuery = conn.runInstalledQuery(&quot;listPatients_Infected_By&quot;, {&quot;p&quot;:2000000205})[0][&#39;Infected_Patients&#39;]
@@ -744,6 +822,58 @@ You will see this!</p>
 <p><img alt="pyTG-gsql-output2" src="../img/pyTG-gsql-output2.png" /></p>
 <p>You have transform the data, and the data is ready for the frontend and AntV G6.</p>
 <p>👏 Great job! 👏 You have create a <code>GET</code> method API using TigerGraph Cloud and FastAPI &amp; pyTigerGraph!</p>
+<blockquote>
+<p>Below is the entire code from <code>main.py</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>from typing import Optional
+from fastapi import FastAPI
+import config as Credential
+from fastapi.middleware.cors import CORSMiddleware
+import pyTigerGraph as tg
+
+conn = tg.TigerGraphConnection(host=Credential.HOST, username=Credential.USERNAME, password=Credential.PASSWORD, graphname=Credential.GRAPHNAME)
+conn.apiToken = conn.getToken(conn.createSecret())
+app = FastAPI()
+
+origins = [
+    &quot;http://localhost:3000&quot;,
+    &quot;https://localhost:3000&quot;,
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=[&quot;*&quot;],
+    allow_headers=[&quot;*&quot;],
+)
+
+@app.get(&quot;/listPatients_Infected_By&quot;)
+def readListPatients_Infected_By():
+    gQuery = conn.runInstalledQuery(&quot;listPatients_Infected_By&quot;, {&quot;p&quot;:2000000205})[0][&#39;Infected_Patients&#39;]
+    count = 0
+    children = []
+    for p in gQuery:
+        children.append({
+        &quot;children&quot;: [],
+        &quot;collapsed&quot;: True,
+        &quot;id&quot;: str(count),
+        &quot;name&quot;: p[-3:] + &quot;Patient&quot;,
+
+        })
+        count+=1
+
+    result = {
+        &quot;name&quot;: &quot;205 ROOT&quot;,
+        &quot;id&quot;: &quot;root&quot;,
+        &quot;children&quot;: children,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#FFDBD9&quot;,
+            &quot;stroke&quot;:  &quot;#FF6D67&quot;
+        }
+    }
+    return result
+</code></pre></div>
                 
                   
                 
