@@ -2,19 +2,20 @@
 template: overrides/main.html
 ---
 
-# TigerGraph Cloud
+## Step I. Exploring the solution dataset
 
-**Step I. Exploring the solution dataset: <br>**
 To do this, open GraphStudio by going to "Applications Icon" and clicked on "GraphStudio" from the dropdown.
 
 ![gs](img/gs.png)
 
-**Step II. Select MyGraph: <br>**
+## Step II. Select MyGraph
+
 In the tab that opens, click "Global View" in the top left corner then select "MyGraph" from the dropdown to enter the MyGraph graph.
 
 ![gs-mygraph](img/gs-mygraph.png)
 
-**Step III. Data loading: <br>**
+## Step III. Data loading
+
 To do this, click the “Load Data” tab then press the play button with the hover value of “Start/Resume loading.”
 
 ![gs-data-loading](img/gs-data-loading.png)
@@ -23,7 +24,8 @@ Click on the contune to proceed the loading.
 
 ![gs-data-loading-confirmation](img/gs-data-loading-confirmation.png)
 
-**Step IV. GSQL Queries: <br>**
+## Step IV. GSQL Queries
+
 Perfect! Next, we’ll install all the queries. To do this, go to the “Write Queries” tab and press the box with an up arrow.
 
 ![gs-query-install](img/gs-query-install.png)

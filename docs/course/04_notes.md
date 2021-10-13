@@ -4,14 +4,16 @@ template: overrides/main.html
 
 # Frontend
 
-**Introduction**<br>
+## Introduction
+
 At the end of this chapter, the json data from `listPatients_Infected_By` endpoint will become this visualization graph using AntV G6.
 
 ![tree-graph-demo](img/tree-graph-demo.png){: style="border-style: inset;"}
 
 &nbsp; &nbsp;
 
-**Step I. Resume: <br>**
+## Step I. Resume
+
 If the React project is off then execute the project!
 
 ```
@@ -34,7 +36,8 @@ Now, we can use a browser to open the project with URL: [http://localhost:3000](
 
 &nbsp; &nbsp;
 
-**Step II. Removeing the Hello World: <br>**
+## Step II. Removing the Hello World
+
 The npx creates the React project with the files and folder structure. Let's open the file 'App.js' located in '/tigergraph-fullstack/front/src/App.js'
 
 ![react-folder-structure](img/react-folder-structure.png){: style="height:300px;width:240px"}
@@ -69,7 +72,8 @@ From the header/h1 information, we are going to create a graph showing a list of
 
 &nbsp; &nbsp;
 
-**Step III. Libraries: <br>**
+## Step III. Libraries
+
 Let's import all the libraies inside the 'App.js' on first two lines.
 
 ```
@@ -77,11 +81,12 @@ import axios from 'axios';
 import G6 from '@antv/g6';
 ```
 
-[AntV G6](https://antv.vision/en) will be used in this tutorial which is a new generation of data visualization solution from Ant Group. In addition, Axios provides a small package with a very extensible interface. [Learn more](https://axios-http.com/)
+[AntV G6](https://antv.vision/en) will be used in this tutorial which is a new generation of data visualization solution from Ant Group. In addition, Axios provides a small package with a very extensible interface. [Learn more](https://github.com/axios/axios)
 
 &nbsp; &nbsp;
 
-**Step IV. Loading Data at front: <br>**
+## Step IV. Loading Data at front
+
 Three key points to cover from loading the data at frontend which are 1) React constructor, 2) React life Cycle, and 3) Axios (HTTP request).
 <br/>
 <br/>1) The React constructor is a method that's automatically called during the creation of an object from a class. Therefore, it is used to bind event handlers to the components. In other words, we will use to create a state to store data object.
@@ -111,7 +116,7 @@ axios.get('http://127.0.0.1:8000/listPatients_Infected_By').then((res) => {
     });
 ```
 
-**The entire App.js: <br>**
+## The entire App.js
 
 ```
 import axios from 'axios';
@@ -149,7 +154,8 @@ The axios is making the request to 'http://127.0.0.1:8000/listPatients_Infected_
 
 &nbsp; &nbsp;
 
-**Step V. Data preparing with AntV G6: <br>**
+## Step V. Data preparing with AntV G6
+
 Great job!<br>
 Next, the frontend prepares the response data, which is a json format for the AntV G6. The response data is from listPatients_Infected_By which is a GET method API. Lastly, the data is set to the state and initiated the G6 visualization graph.
 
@@ -342,6 +348,4 @@ class App extends Component {
   }
 }
 export default App;
-
-
 ```
