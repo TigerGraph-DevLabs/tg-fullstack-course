@@ -11,23 +11,23 @@
         <meta name="description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
       
       
-        <link rel="canonical" href="https://hhsu99.github.io/tg-fullstack-course/">
+        <link rel="canonical" href="https://hhsu99.github.io/tg-fullstack-course/course/06_notes/">
       
       
         <meta name="author" content="Kevin Hsu">
       
-      <link rel="shortcut icon" href="assets/favicon.png">
+      <link rel="shortcut icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-5.5.3">
     
     
       
-        <title>TigerGraph's Fullstack Course</title>
+        <title>Chapter 06 - Video Walk-Through - TigerGraph's Fullstack Course</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.e584d62f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e584d62f.min.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/palette.cef4c379.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cef4c379.min.css">
       
       
         
@@ -45,7 +45,7 @@
     
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     
   
@@ -66,11 +66,13 @@
     
   
   
+    
+  
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TigerGraph's Fullstack Course">
+  <meta property="og:title" content="TigerGraph's Fullstack Course - Chapter 06 - Video Walk-Through">
   <meta property="og:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
-  <meta property="og:url" content="https://hhsu99.github.io/tg-fullstack-course/">
+  <meta property="og:url" content="https://hhsu99.github.io/tg-fullstack-course/course/06_notes/">
   <meta property="og:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
@@ -78,10 +80,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@squidfunk">
   <meta name="twitter:creator" content="@squidfunk">
-  <meta name="twitter:title" content="TigerGraph's Fullstack Course">
+  <meta name="twitter:title" content="TigerGraph's Fullstack Course - Chapter 06 - Video Walk-Through">
   <meta name="twitter:description" content="This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.">
   <meta name="twitter:image" content="https://hhsu99.github.io/tg-fullstack-course/assets/images/banner.png">
-  <link rel="stylesheet" href="assets/stylesheets/overrides.011ebae6.min.css">
+  <link rel="stylesheet" href="../../assets/stylesheets/overrides.011ebae6.min.css">
 
   </head>
   
@@ -96,6 +98,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#video-walk-through" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -136,7 +143,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Home
+              Chapter 06 - Video Walk-Through
             
           </span>
         </div>
@@ -194,18 +201,20 @@
       
         
       
-       
+      
         
           
 
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     
@@ -217,7 +226,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="01_importance/" class="md-tabs__link">
+        <a href="../../01_importance/" class="md-tabs__link">
           Why Fullstack?
         </a>
       
@@ -230,7 +239,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="course/00_notes/" class="md-tabs__link">
+        <a href="../00_notes/" class="md-tabs__link md-tabs__link--active">
           Course Chapters
         </a>
       
@@ -243,7 +252,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="03_examples/" class="md-tabs__link">
+        <a href="../../03_examples/" class="md-tabs__link">
           Fullstack Examples
         </a>
       
@@ -256,7 +265,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="04_resources/" class="md-tabs__link">
+        <a href="../../04_resources/" class="md-tabs__link">
           Resources
         </a>
       
@@ -269,7 +278,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="05_community/" class="md-tabs__link">
+        <a href="../../05_community/" class="md-tabs__link">
           Community
         </a>
       
@@ -282,63 +291,6 @@
 </nav>
         
       
-<style>
-  .md-header {
-    position: initial;
-  }
-  .md-main__inner {
-    margin: 0;
-  }
-  .md-content {
-    display: none;
-  }
-  @media screen and (min-width: 60em) {
-    .md-sidebar--secondary {
-      display: none;
-    }
-  }
-  @media screen and (min-width: 76.25em) {
-    .md-sidebar--primary {
-      display: none;
-    }
-  }
-</style>
-<section class="tx-container">
-  <div class="md-grid md-typeset">
-    <div class="tx-hero">
-      <div class="tx-hero__image">
-        <img
-          src="assets/images/illustration2.png"
-          alt=""
-          width="600"
-          height="600"
-          alighn="left"
-          draggable="false"
-        />
-        <a href="https://storyset.com/work">Work illustrations by Storyset</a>
-      </div>
-      <div class="tx-hero__content">
-        <h1>TigerGraph Fullstack</h1>
-        <p>This all-in-one guide teaches users how to analyze their data using 🐯 TigerGraph Cloud 🐯 to create fullstack applications. Each component — the frontend, middleware, and cloud database — is meticulously detailed, resulting in an step-by-step journey to deploy one's fullstack app.</p>
-        <a
-          href="01_importance/"
-          title="Why Fullstack"
-          class="md-button md-button--primary"
-        >
-          Learn More
-        </a>
-        <a
-          href="course/02_notes/"
-          title="Go to repository"
-          class="md-button"
-        >
-          Jump In
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
@@ -378,18 +330,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
       Home
     </a>
-    
   </li>
 
     
@@ -424,7 +369,7 @@
 
 
   <li class="md-nav__item">
-    <a href="01_importance/" title="Why Fullstack" class="md-nav__link">
+    <a href="../../01_importance/" title="Why Fullstack" class="md-nav__link">
       Why Fullstack
     </a>
   </li>
@@ -439,10 +384,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Course Chapters
@@ -466,7 +413,7 @@
 
 
   <li class="md-nav__item">
-    <a href="course/00_notes/" title="Chapter 0 - Introduction" class="md-nav__link">
+    <a href="../00_notes/" title="Chapter 0 - Introduction" class="md-nav__link">
       Chapter 0 - Introduction
     </a>
   </li>
@@ -478,7 +425,7 @@
 
 
   <li class="md-nav__item">
-    <a href="course/01_notes/" title="Chapter 01 - Environment Setup" class="md-nav__link">
+    <a href="../01_notes/" title="Chapter 01 - Environment Setup" class="md-nav__link">
       Chapter 01 - Environment Setup
     </a>
   </li>
@@ -490,7 +437,7 @@
 
 
   <li class="md-nav__item">
-    <a href="course/02_notes/" title="Chapter 02 - TigerGraph Cloud" class="md-nav__link">
+    <a href="../02_notes/" title="Chapter 02 - TigerGraph Cloud" class="md-nav__link">
       Chapter 02 - TigerGraph Cloud
     </a>
   </li>
@@ -502,7 +449,7 @@
 
 
   <li class="md-nav__item">
-    <a href="course/03_notes/" title="Chapter 03 - Middleware" class="md-nav__link">
+    <a href="../03_notes/" title="Chapter 03 - Middleware" class="md-nav__link">
       Chapter 03 - Middleware
     </a>
   </li>
@@ -514,7 +461,7 @@
 
 
   <li class="md-nav__item">
-    <a href="course/04_notes/" title="Chapter 04 - Frontend" class="md-nav__link">
+    <a href="../04_notes/" title="Chapter 04 - Frontend" class="md-nav__link">
       Chapter 04 - Frontend
     </a>
   </li>
@@ -526,7 +473,7 @@
 
 
   <li class="md-nav__item">
-    <a href="course/05_notes/" title="Chapter 05 - Conculsion" class="md-nav__link">
+    <a href="../05_notes/" title="Chapter 05 - Conculsion" class="md-nav__link">
       Chapter 05 - Conculsion
     </a>
   </li>
@@ -536,11 +483,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="course/06_notes/" title="Chapter 06 - Video Walk-Through" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Chapter 06 - Video Walk-Through" class="md-nav__link md-nav__link--active">
       Chapter 06 - Video Walk-Through
     </a>
+    
   </li>
 
         
@@ -580,7 +536,7 @@
 
 
   <li class="md-nav__item">
-    <a href="03_examples/" title="Exquisite Examples" class="md-nav__link">
+    <a href="../../03_examples/" title="Exquisite Examples" class="md-nav__link">
       Exquisite Examples
     </a>
   </li>
@@ -622,7 +578,7 @@
 
 
   <li class="md-nav__item">
-    <a href="04_resources/" title="Resources" class="md-nav__link">
+    <a href="../../04_resources/" title="Resources" class="md-nav__link">
       Resources
     </a>
   </li>
@@ -664,7 +620,7 @@
 
 
   <li class="md-nav__item">
-    <a href="05_community/" title="Get Connected" class="md-nav__link">
+    <a href="../../05_community/" title="Get Connected" class="md-nav__link">
       Get Connected
     </a>
   </li>
@@ -682,10 +638,57 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
+  
+                
+                  <a href="https://github.com/hhsu99/tg-fullstack-course/edit/master/docs/course/06_notes.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="video-walk-through">Video Walk-Through<a class="headerlink" href="#video-walk-through" title="Permanent link">&para;</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j8sa78kTFDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                  
+                
+              
+  <footer class="tx-content__footer md-typeset">
+    <a href="https://tigergraph.com" title="TigerGraph Website">
+      <hr>
+      <span class="twemoji">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 01-2 2 2 2 0 012 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 00-2-2H0v-2h1a2 2 0 002-2V5a2 2 0 012-2m14 0a2 2 0 012 2v4a2 2 0 002 2h1v2h-1a2 2 0 00-2 2v4a2 2 0 01-2 2h-2v-2h2v-5a2 2 0 012-2 2 2 0 01-2-2V5h-2V3h2m-7 12a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1m-4 0a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1m8 0a1 1 0 011 1 1 1 0 01-1 1 1 1 0 01-1-1 1 1 0 011-1z"/></svg>
+      </span>
+      <span class="twemoji">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      </span>
+      <span class="twemoji tx-heart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709-.153.086-.308.17-.463.252h-.002a.75.75 0 01-.686 0 16.709 16.709 0 01-.465-.252 31.147 31.147 0 01-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31.146 31.146 0 0114 20.408z"/></svg>
+      </span>
+      <hr>
+    </a>
+  </footer>
+
               
                 
 
@@ -696,17 +699,73 @@
         </div>
       </main>
       
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../05_notes/" title="Chapter 05 - Conculsion" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Chapter 05 - Conculsion
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../03_examples/" title="Exquisite Examples" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Exquisite Examples
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 TigerGraph
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
     </div>
     
-      <script src="assets/javascripts/vendor.c3dc8c49.min.js"></script>
-      <script src="assets/javascripts/bundle.30071cf1.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
+      <script src="../../assets/javascripts/bundle.30071cf1.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: ".",
+          base: "../..",
           features: ["tabs", "navigation.top", "navigation.sections", "navigation.tracking", "navigation.tabs.sticky"],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.8e2cddea.min.js"
+            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
