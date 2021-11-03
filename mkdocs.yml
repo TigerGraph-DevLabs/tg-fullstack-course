@@ -145,12 +145,12 @@ nav:
 
   - Course Chapters:
     - Chapter 0 - Introduction: course/00_notes.md
-    - Chapter 01 - Environment Setup: course/01_notes.md
-    - Chapter 02 - TigerGraph Cloud: course/02_notes.md
-    - Chapter 03 - Middleware: course/03_notes.md
-    - Chapter 04 - Frontend: course/04_notes.md
-    - Chapter 05 - Conculsion: course/05_notes.md
-    - Chapter 06 - Video Walk-Through: course/06_notes.md
+    - Chapter 01 - Video Walk-Through: course/01_notes.md
+    - Chapter 02 - Environment Setup: course/02_notes.md
+    - Chapter 03 - TigerGraph Cloud: course/03_notes.md
+    - Chapter 04 - Middleware: course/04_notes.md
+    - Chapter 05 - Frontend: course/05_notes.md
+    - Chapter 06 - Conculsion: course/06_notes.md
 
 
   - Fullstack Examples:

@@ -2,350 +2,183 @@
 template: overrides/main.html
 ---
 
-# Frontend
+# Middleware
 
-## Introduction
+## Step I. Connect to your TigerGraph Cloud Solution
 
-At the end of this chapter, the json data from `listPatients_Infected_By` endpoint will become this visualization graph using AntV G6.
-
-![tree-graph-demo](img/tree-graph-demo.png){: style="border-style: inset;"}
-
-&nbsp; &nbsp;
-
-## Step I. Resume
-
-If the React project is off then execute the project!
+Perfect! Now we’re ready to integrate pyTigerGraph into our API. Open `main.py` in your editor of choice and import pyTigerGraph.
 
 ```
-tigergraph-fullstack$ cd front
-front$ npm start
-
-Compiled successfully!
-
-You can now view front in the browser.
-
-  Local:            http://localhost:3000
-  On Your Network:  http://192.168.50.45:3000
-
-Note that the development build is not optimized.
-To create a production build, use npm build.
+import pyTigerGraph as tg
 ```
 
-Now, we can use a browser to open the project with URL: [http://localhost:3000](http://localhost:3000)
-![react-hello-world](img/react-hello-world.png)
-
-&nbsp; &nbsp;
-
-## Step II. Removing the Hello World
-
-The npx creates the React project with the files and folder structure. Let's open the file 'App.js' located in '/tigergraph-fullstack/front/src/App.js'
-
-![react-folder-structure](img/react-folder-structure.png){: style="height:300px;width:240px"}
-
-Replace the code over the current existing code in 'App.js'.
+To make this safer, create a configs.py file and import the credentials from there.
 
 ```
-import './App.css';
-
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>GSQL Query: listPatients_Infected_By(2000000205)</h1>
-      </div>
-    );
-  }
-}
-
-export default App;
+touch config.py
 ```
 
-We replaced the React Functional Component with React Class Component. In addition, we added a h1 tag and giving div tag a class name called 'App' which is from the import of 'App,css'.
-
-Afterward the [http://localhost:3000](http://localhost:3000) will show this.
-
-![rt-rm-hw](img/rt-rm-hw.png){: style="border-style: inset;"}
-
-From the header/h1 information, we are going to create a graph showing a list of patients infected by the vertex id of 2000000205.
-
-&nbsp; &nbsp;
-
-## Step III. Libraries
-
-Let's import all the libraies inside the 'App.js' on first two lines.
+In `config.py`:
 
 ```
-import axios from 'axios';
-import G6 from '@antv/g6';
+HOST='https://covid-fullstack.i.tgcloud.io'
+USERNAME='tigergraph'
+PASSWORD='tigergraph'
+GRAPHNAME='MyGraph'
 ```
 
-[AntV G6](https://antv.vision/en) will be used in this tutorial which is a new generation of data visualization solution from Ant Group. In addition, Axios provides a small package with a very extensible interface. [Learn more](https://github.com/axios/axios)
-
-&nbsp; &nbsp;
-
-## Step IV. Loading Data at front
-
-Three key points to cover from loading the data at frontend which are 1) React constructor, 2) React life Cycle, and 3) Axios (HTTP request).
-<br/>
-<br/>1) The React constructor is a method that's automatically called during the creation of an object from a class. Therefore, it is used to bind event handlers to the components. In other words, we will use to create a state to store data object.
+Let's come back to `main.py`, create a connection to your TigerGraph Cloud server.
 
 ```
-constructor() {
-super();
-this.state = { data: [] };
-}
+import config as Credential
+conn = tg.TigerGraphConnection(host=Credential.HOST, username=Credential.USERNAME, password=Credential.PASSWORD, graphname=Credential.GRAPHNAME)
+conn.apiToken = conn.getToken(conn.createSecret())
 ```
 
-<br/>2) Life cycle in particular of componentDidMount() method runs after the component output has been rendered to the DOM.
+If this runs successfully, then you’re connected to TigerGraph Cloud! Congrats!
+
+## Step II. Establish the Cross-Origin Resource Sharing (CORS)
+
+Since the communication between front and middleware don't specify a port, it is essential configure the CORS.<br>
+<br>
+Let's import CORSMiddleware in `main.py`
 
 ```
-componentDidMount() {}
+from fastapi.middleware.cors import CORSMiddleware
 ```
 
-<br/>3) Axios is a simple promise based HTTP client which use in React to make request from the FastAPI endpoint.
+Create a list of allowed origins (as strings).
 
 ```
-axios.get('http://127.0.0.1:8000/listPatients_Infected_By').then((res) => {
-    if (res.status === 200) {
+origins = [
+    "http://localhost:3000",
+    "https://localhost:3000",
+]
+```
+
+Sspecify the middleware allows:
+
+- Credentials (Authorization headers, Cookies, etc).<br>
+- Specific `HTTP` methods (`POST`, `PUT`) or all of them with the wildcard "\*".
+- Specific `HTTP` headers or all of them with the wildcard "\*".
+
+```
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+
+## Step III. Create Query Endpoints
+
+Let’s first run TigerGraph queries with FastAPI, starting with listPatients_Infected_By.
+
+```
+@app.get("/listPatients_Infected_By")
+def readListPatients_Infected_By():
+    gQuery = conn.runInstalledQuery("listPatients_Infected_By", {"p":2000000205})[0]['Infected_Patients']
+    return gQuery
+```
+
+Break this down, we're running the `listPatients_Infected_By` query that is installed in GraphStudio. As the query parameter takes the Patient Vertex ID, the output return a list of infected Patients' ID.
+
+If you haven’t already, run the file. Open http://127.0.0.1:8000/listPatients_Infected_By to run the query.
+
+![pyTG-gsql-output](img/pyTG-gsql-output.png)
+
+Awesome! Now, the data need to be transform into nested tree json format with keys like name (String), id (String), and children (list of objects).
+
+After adding the data transformation, the `GET` method of `listPatients_Infected_By` would look like this
+
+```
+@app.get("/listPatients_Infected_By")
+def readListPatients_Infected_By():
+    gQuery = conn.runInstalledQuery("listPatients_Infected_By", {"p":2000000205})[0]['Infected_Patients']
+    count = 0
+    children = []
+    for p in gQuery:
+        children.append({
+        "children": [],
+        "collapsed": True,
+        "id": str(count),
+        "name": p[-3:] + "Patient",
+
+        })
+        count+=1
+
+    result = {
+        "name": "205 ROOT",
+        "id": "root",
+        "children": children,
+        "style": {
+            "fill": "#FFDBD9",
+            "stroke":  "#FF6D67"
+        }
     }
-    })
-    .catch((err) => {
-    console.error(err);
-    });
+    return result
 ```
 
-## The entire App.js
+If you open the endpoint http://127.0.0.1:8000/listPatients_Infected_By, again.<br>
+You will see this!
+
+![pyTG-gsql-output2](img/pyTG-gsql-output2.png)
+
+You have transform the data, and the data is ready for the frontend and AntV G6.
+
+👏 Great job! 👏 You have create a `GET` method API using TigerGraph Cloud and FastAPI & pyTigerGraph!
+
+> Below is the entire code from `main.py`
 
 ```
-import axios from 'axios';
-import G6 from '@antv/g6';
-import './App.css';
-import React, { Component } from 'react';
-class App extends Component {
-  constructor() {
-    super();
-    this.state = { data: [] };
-  }
-  componentDidMount() {
-    axios
-      .get('http://127.0.0.1:8000/listPatients_Infected_By')
-      .then((res) => {
-        if (res.status === 200) {
+from typing import Optional
+from fastapi import FastAPI
+import config as Credential
+from fastapi.middleware.cors import CORSMiddleware
+import pyTigerGraph as tg
+
+conn = tg.TigerGraphConnection(host=Credential.HOST, username=Credential.USERNAME, password=Credential.PASSWORD, graphname=Credential.GRAPHNAME)
+conn.apiToken = conn.getToken(conn.createSecret())
+app = FastAPI()
+
+origins = [
+    "http://localhost:3000",
+    "https://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/listPatients_Infected_By")
+def readListPatients_Infected_By():
+    gQuery = conn.runInstalledQuery("listPatients_Infected_By", {"p":2000000205})[0]['Infected_Patients']
+    count = 0
+    children = []
+    for p in gQuery:
+        children.append({
+        "children": [],
+        "collapsed": True,
+        "id": str(count),
+        "name": p[-3:] + "Patient",
+
+        })
+        count+=1
+
+    result = {
+        "name": "205 ROOT",
+        "id": "root",
+        "children": children,
+        "style": {
+            "fill": "#FFDBD9",
+            "stroke":  "#FF6D67"
         }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1>GSQL Query: listPatients_Infected_By(2000000205)</h1>
-      </div>
-    );
-  }
-}
-export default App;
-```
-
-The axios is making the request to 'http://127.0.0.1:8000/listPatients_Infected_By' and it is executed inside the componentDidMount method scope; Once the component is rendered onto the DOM then the life cycle executed the code inside of itself!
-
-&nbsp; &nbsp;
-
-## Step V. Data preparing with AntV G6
-
-Great job!<br>
-Next, the frontend prepares the response data, which is a json format for the AntV G6. The response data is from listPatients_Infected_By which is a GET method API. Lastly, the data is set to the state and initiated the G6 visualization graph.
-
-> Explanation on AntV G6 Implemenataion line by line:
-
-```
-/* The code block is setting the response data to the state and
-get the container DOM id and its window info to render the graph.
-*/
-this.setState({ data: res.data });
-const container = document.getElementById('container');
-const width = container.scrollWidth || 1280;
-const height = window.height || 800;
-
-/* Create a TreeGraph and its configuration such as default node size, layout, and modes.
-Learn more on AntV G6 API docs.
-*/
-const graph = new G6.TreeGraph({
-container: 'container',
-width,
-height,
-linkCenter: true,
-modes: {
-    default: [
-    {
-        type: 'collapse-expand',
-        onChange: function onChange(item, collapsed) {
-        const data = item.get('model');
-        data.collapsed = collapsed;
-        return true;
-        },
-    },
-    'drag-canvas',
-    'zoom-canvas',
-    'drag-node',
-    'activate-relations',
-    ],
-},
-defaultNode: {
-    size: 55,
-},
-layout: {
-    type: 'dendrogram',
-    direction: 'RL',
-    nodeSep: 20,
-    rankSep: 400,
-    radial: true,
-},
-});
-
-// Use the combo operation to set the style and other configurations for each node.
-graph.node(function (node) {
-return {
-    label: `${node.name.slice(0, 3)}\n${node.name.slice(3)}`,
-    size: node.children.length ? 52 : 50,
-};
-});
-
-
-/* The response json data is in format of nested tree
-using parents and children to represent the graph.
-Hence, the json data is in one json object with all the infomation of nodes and edges.
-*/
-graph.data(this.state.data);
-
-// Lastly, print out the graph with built-in animation from AntV G6.
-graph.render();
-graph.fitView();
-graph.get('canvas').set('localRefresh', false);
-
-graph.on('node:click', (evt) => {
-const nodeItem = evt.item;
-if (!nodeItem) return;
-const item = nodeItem.getModel();
-if (item.url) {
-    window.open(item.url);
-}
-});
-
-if (typeof window !== 'undefined')
-window.onresize = () => {
-    if (!graph || graph.get('destroyed')) return;
-    if (
-    !container ||
-    !container.scrollWidth ||
-    !container.scrollHeight
-    )
-    return;
-    graph.changeSize(container.scrollWidth, container.scrollHeight);
-};
-```
-
-&nbsp; &nbsp;
-
-> Below is the entire code from App.js
-
-```
-import './App.css';
-import React, { Component } from 'react';
-import axios from 'axios';
-import G6 from '@antv/g6';
-class App extends Component {
-  constructor() {
-    super();
-    this.state = { data: [] };
-  }
-  componentDidMount() {
-    axios
-      .get('http://127.0.0.1:8000/listPatients_Infected_By')
-      .then((res) => {
-        if (res.status === 200) {
-          this.setState({ data: res.data });
-          const container = document.getElementById('container');
-          const width = container.scrollWidth || 1280;
-          const height = window.height || 800;
-          const graph = new G6.TreeGraph({
-            container: 'container',
-            width,
-            height,
-            linkCenter: true,
-            modes: {
-              default: [
-                {
-                  type: 'collapse-expand',
-                  onChange: function onChange(item, collapsed) {
-                    const data = item.get('model');
-                    data.collapsed = collapsed;
-                    return true;
-                  },
-                },
-                'drag-canvas',
-                'zoom-canvas',
-                'drag-node',
-                'activate-relations',
-              ],
-            },
-            defaultNode: {
-              size: 55,
-            },
-            layout: {
-              type: 'dendrogram',
-              direction: 'RL',
-              nodeSep: 20,
-              rankSep: 400,
-              radial: true,
-            },
-          });
-          graph.node(function (node) {
-            return {
-              label: `${node.name.slice(0, 3)}\n${node.name.slice(3)}`,
-              size: node.children.length ? 52 : 50,
-            };
-          });
-          graph.data(this.state.data);
-          graph.render();
-          graph.fitView();
-          graph.get('canvas').set('localRefresh', false);
-          graph.on('node:click', (evt) => {
-            const nodeItem = evt.item;
-            if (!nodeItem) return;
-            const item = nodeItem.getModel();
-            if (item.url) {
-              window.open(item.url);
-            }
-          });
-          if (typeof window !== 'undefined')
-            window.onresize = () => {
-              if (!graph || graph.get('destroyed')) return;
-              if (
-                !container ||
-                !container.scrollWidth ||
-                !container.scrollHeight
-              )
-                return;
-              graph.changeSize(container.scrollWidth, container.scrollHeight);
-            };
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1>GSQL Query: listPatients_Infected_By(2000000205)</h1>
-        <div id="container"></div>
-      </div>
-    );
-  }
-}
-export default App;
+    }
+    return result
 ```
