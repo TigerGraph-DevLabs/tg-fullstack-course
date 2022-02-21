@@ -56,7 +56,7 @@ origins = [
 ]
 ```
 
-Sspecify the middleware allows:
+Specify the middleware allows:
 
 - Credentials (Authorization headers, Cookies, etc).<br>
 - Specific `HTTP` methods (`POST`, `PUT`) or all of them with the wildcard "\*".
